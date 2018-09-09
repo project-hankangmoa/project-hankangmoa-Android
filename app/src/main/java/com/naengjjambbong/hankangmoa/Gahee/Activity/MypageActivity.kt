@@ -9,7 +9,6 @@ import com.bumptech.glide.RequestManager
 import com.naengjjambbong.hankangmoa.Gahee.Adapter.MypageAdapter
 import com.naengjjambbong.hankangmoa.Gahee.Item.MypageItem
 import com.naengjjambbong.hankangmoa.R
-
 import kotlinx.android.synthetic.main.mypage.*
 
 class MypageActivity : AppCompatActivity() {

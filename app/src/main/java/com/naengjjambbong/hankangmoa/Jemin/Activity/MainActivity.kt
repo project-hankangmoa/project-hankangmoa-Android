@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import com.naengjjambbong.hankangmoa.R
 
+
 class MainActivity : AppCompatActivity() {
 
     // start
