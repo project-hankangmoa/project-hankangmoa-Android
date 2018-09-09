@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import com.naengjjambbong.hankangmoa.R
 
 class MypageViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView){
 
