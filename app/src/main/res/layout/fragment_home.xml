@@ -319,6 +319,7 @@
                 android:layout_marginLeft="7.3dp"
                 android:layout_toRightOf="@id/home_water_layout"
                 android:layout_alignTop="@id/home_experience_layout"
+                android:orientation="vertical"
                 >
 
                 <ImageView
