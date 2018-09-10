@@ -6,7 +6,11 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:background="#fcfcfc"
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -78,14 +82,27 @@
 
             </RelativeLayout>
 
-            <EditText
+            <RelativeLayout
                 android:layout_width="304dp"
                 android:layout_height="34dp"
+                android:background="@drawable/searchbar"
                 android:layout_below="@+id/home_today_hankang_content_tv"
                 android:layout_marginTop="25dp"
                 android:layout_centerHorizontal="true"
-                android:background="@drawable/searchbar"
-                />
+                >
+
+                <EditText
+                    android:layout_width="250dp"
+                    android:layout_height="34dp"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="13sp"
+                    android:layout_centerVertical="true"
+                    android:backgroundTint="@color/Transparent"
+                    />
+
+
+            </RelativeLayout>
+
 
             <Button
                 android:layout_width="16.1dp"
@@ -96,7 +113,6 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="52.9dp"
                 />
-
 
 
         </RelativeLayout>
