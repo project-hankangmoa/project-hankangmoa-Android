@@ -231,10 +231,7 @@
                     android:textColor="#484848"
                     android:textSize="12sp" />
 
-
             </RelativeLayout>
-
-
 
 
             <ImageView
