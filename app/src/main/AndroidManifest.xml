@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Gahee.Activity.MypageActivity"/>
+        <activity android:name=".Gahee.Activity.ListActivity"/>
 
         <activity android:name=".Gahee.Activity.DetailActivity">
         </activity>

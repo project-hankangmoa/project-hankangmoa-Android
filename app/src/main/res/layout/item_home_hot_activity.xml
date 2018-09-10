@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="160dp"
+    android:layout_height="143dp"
+    android:orientation="vertical"
+    android:layout_marginTop="30dp"
+    >
+
+    <ImageView
+        android:id="@+id/item_hot_activity_img"
+        android:layout_width="160dp"
+        android:layout_height="105dp"
+        android:src="@drawable/example_content"
+        />
+    
+    <TextView
+        android:id="@+id/item_hot_activity_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="한여름밤의 재즈"
+        android:layout_marginTop="5dp"
+        android:textSize="13sp"
+        android:textColor="#484848"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/item_hot_date_range_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2018. 08. 10(금) ~ 08. 12(일)"
+        android:layout_marginTop="1dp"
+        android:textSize="10sp"
+        android:textColor="#777777"
+        android:layout_gravity="center"
+        />
+
+</LinearLayout>
