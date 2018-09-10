@@ -1,4 +1,4 @@
-package com.naengjjambbong.hankangmoa.Jemin.Activity.Fragment
+package com.naengjjambbong.hankangmoa.Jemin.Fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
