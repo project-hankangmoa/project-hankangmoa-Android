@@ -1,6 +1,7 @@
 package com.naengjjambbong.hankangmoa.Jemin.Fragment
 
 import android.annotation.TargetApi
+import android.content.Intent
 import android.graphics.Point
 import android.os.Build
 import android.os.Bundle
@@ -8,20 +9,23 @@ import android.support.annotation.RequiresApi
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
+import com.naengjjambbong.hankangmoa.Gahee.Activity.DetailActivity
 import com.naengjjambbong.hankangmoa.Jemin.Adapter.*
 import com.naengjjambbong.hankangmoa.Jemin.Item.HotActivityItem
 import com.naengjjambbong.hankangmoa.Jemin.Item.HotLocationItem
 import com.naengjjambbong.hankangmoa.Jemin.Item.MainListItem
 import com.naengjjambbong.hankangmoa.Jemin.ViewPager.CustomViewPagerAdapter
 import com.naengjjambbong.hankangmoa.R
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), View.OnClickListener {
 
     lateinit var hotActivityItem : ArrayList<HotActivityItem>
     lateinit var mainImage : ArrayList<String>
@@ -30,6 +34,16 @@ class HomeFragment : Fragment() {
     lateinit var hotActivityAdapter: HotActivityAdapter
     lateinit var hotLocationAdapter: HotLocationAdapter
     lateinit var requestManager: RequestManager //RequestManger는 이미지 주소를 URL로 가져오면서 사용함
+
+
+    override fun onClick(v: View?) {
+        val idx : Int = home_hot_activity_recyclerview.getChildAdapterPosition(v)
+
+        val intent = Intent(getActivity(), DetailActivity::class.java)
+        startActivity(intent)
+
+        // callFragment(RoomInformFragment())
+    }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
@@ -107,6 +121,7 @@ class HomeFragment : Fragment() {
         hotActivityItem.add(HotActivityItem("http://image.kmib.co.kr/online_image/2016/0117/201601171739_61120010263499_1.jpg", "한강 축제","2018.08.10(금) ~ 08. 12(일)"))
         //projectItems.add(ProjectItem("https://project-cowalker.s3.ap-northeast-2.amazonaws.com/1531113346984.jpg", "ㅁㄴㅇㅎ", "ㅁㄴㅇㄹㄴㅁㅇㅎ", "ㅁㄴㅇㄹ", "ㅇㅎㅁㄴㅇㄹ"))ㅇ
         hotActivityAdapter = HotActivityAdapter(context!!, hotActivityItem, requestManager)
+        hotActivityAdapter.setOnItemClickListener(this@HomeFragment)
         v.home_hot_activity_recyclerview.layoutManager = GridLayoutManager(v.context, 2)
         v.home_hot_activity_recyclerview.adapter = hotActivityAdapter
 
@@ -126,6 +141,7 @@ class HomeFragment : Fragment() {
         //projectItems.add(ProjectItem("https://project-cowalker.s3.ap-northeast-2.amazonaws.com/1531113346984.jpg", "ㅁㄴㅇㅎ", "ㅁㄴㅇㄹㄴㅁㅇㅎ", "ㅁㄴㅇㄹ", "ㅇㅎㅁㄴㅇㄹ"))ㅇ
         hotLocationAdapter = HotLocationAdapter(context!!, hotLocationItem, requestManager)
         v.home_hot_loaction_recyclerview.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        hotLocationAdapter.setOnItemClickListener(this@HomeFragment)
         v.home_hot_loaction_recyclerview.adapter = hotLocationAdapter
 
     }

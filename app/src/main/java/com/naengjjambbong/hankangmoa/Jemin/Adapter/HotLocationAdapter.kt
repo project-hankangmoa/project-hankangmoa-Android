@@ -19,12 +19,17 @@ import com.naengjjambbong.hankangmoa.R
 
 class HotLocationAdapter(context : Context, private var hotLocationItem : ArrayList<HotLocationItem>, var requestManager : RequestManager) : RecyclerView.Adapter<HotLocationViewHolder>() {
 
-    val  mContext : Context = context
-    var lastPosition : Int = -2
+    private lateinit var onItemClick : View.OnClickListener
+
+    fun setOnItemClickListener(l : View.OnClickListener){
+        onItemClick = l
+
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HotLocationViewHolder {
         val mainView : View = LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_home_hot_location, parent, false)
+        mainView.setOnClickListener(onItemClick)
         return HotLocationViewHolder(mainView)
 
     }

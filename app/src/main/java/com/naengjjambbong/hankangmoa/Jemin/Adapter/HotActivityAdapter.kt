@@ -17,10 +17,17 @@ import com.naengjjambbong.hankangmoa.R
 
 class HotActivityAdapter(context: Context, private var hotActivityItem : ArrayList<HotActivityItem>, var requestManager : RequestManager) : RecyclerView.Adapter<HotActivityViewHolder>() {
 
+    private lateinit var onItemClick : View.OnClickListener
+
+    fun setOnItemClickListener(l : View.OnClickListener){
+        onItemClick = l
+
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HotActivityViewHolder {
         val mainView : View = LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_home_hot_activity, parent, false)
+        mainView.setOnClickListener(onItemClick)
         return HotActivityViewHolder(mainView)
 
     }
