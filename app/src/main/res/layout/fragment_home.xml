@@ -125,12 +125,12 @@
             android:layout_marginTop="195dp"
             >
 
-            <ImageView
-                android:layout_width="300dp"
+            <com.naengjjambbong.hankangmoa.Jemin.ViewPager.CustomViewPager
+                android:id="@+id/home_rc_viewPager"
+                android:layout_width="match_parent"
                 android:layout_height="210dp"
-                android:src="@drawable/example_content"
-                android:layout_gravity="center"
-                />
+                android:layout_marginTop="22dp"
+                android:clipToPadding="false" />
 
         </LinearLayout>
 
@@ -395,7 +395,7 @@
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/home_hot_activity_recyclerview"
                 android:layout_width="match_parent"
-                android:layout_height="346dp"
+                android:layout_height="350dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="15dp"
                 android:layout_below="@+id/home_hot_activity_title_tv"
