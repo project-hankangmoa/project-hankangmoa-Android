@@ -16,6 +16,7 @@ import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AlertDialog
 import android.view.View
+import android.view.WindowManager
 import android.widget.ImageButton
 
 
@@ -205,6 +206,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
                 .setNegativeButton("아니요", null)
                 .show()
+    }
+
+    fun initActivityDesign(){
+
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+
+            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            window.statusBarColor = resources.getColor(R.color.white, null)
+        }
     }
 
 }

@@ -8,7 +8,7 @@ import com.bumptech.glide.RequestManager
 import com.naengjjambbong.hankangmoa.Gahee.Adapter.ListAdapter
 import com.naengjjambbong.hankangmoa.Gahee.Item.ListItem
 import com.naengjjambbong.hankangmoa.R
-import kotlinx.android.synthetic.main.list.*
+import kotlinx.android.synthetic.main.activity_list.*
 
 
 class ListActivity : AppCompatActivity() {
@@ -18,7 +18,7 @@ class ListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.list)
+        setContentView(R.layout.activity_list)
 
         listItem = ArrayList()
         list()
