@@ -15,6 +15,7 @@ import com.naengjjambbong.hankangmoa.Jemin.Item.HotActivityItem
 import com.naengjjambbong.hankangmoa.Jemin.ViewHolder.HotActivityViewHolder
 import com.naengjjambbong.hankangmoa.R
 
+
 class HotActivityAdapter(context: Context, private var hotActivityItem : ArrayList<HotActivityItem>, var requestManager : RequestManager) : RecyclerView.Adapter<HotActivityViewHolder>() {
 
     private lateinit var onItemClick : View.OnClickListener
