@@ -6,7 +6,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="122dp"
+        android:layout_height="103dp"
         android:background="@drawable/bar">
 
         <LinearLayout
@@ -41,7 +41,15 @@
         android:layout_height="70dp"
         android:layout_marginTop="68dp"
         android:layout_marginLeft="145dp"
-        android:src="@drawable/ic_launcher_background"
+        android:src="@drawable/img_profile"
+        />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="113dp"
+        android:layout_marginLeft="198dp"
+        android:src="@drawable/btn_image_edit"
         />
 
     <TextView
@@ -56,29 +64,18 @@
         />
 
     <ImageView
-        android:layout_width="135dp"
-        android:layout_height="32dp"
-        android:layout_marginLeft="113dp"
-        android:layout_marginTop="178dp"
-        android:src="@drawable/btn_modify"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginLeft="203dp"
+        android:layout_marginTop="149.5dp"
+        android:src="@drawable/icon_edit"
         />
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="151dp"
-        android:layout_marginTop="183dp"
-        android:textSize="13sp"
-        android:textColor="#484848"
-        android:lineSpacingExtra="5sp"
-        android:gravity="center_horizontal"
-        android:text="프로필 수정"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="232dp"
+        android:layout_marginTop="189dp"
         android:layout_marginLeft="66dp"
         android:textSize="13sp"
         android:textColor="#484848"
@@ -89,22 +86,10 @@
         />
 
     <TextView
+        android:id="@+id/mypage_steamlist_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="232dp"
-        android:layout_marginLeft="242dp"
-        android:textSize="13sp"
-        android:textColor="#484848"
-        android:letterSpacing="-0.05"
-        android:lineSpacingExtra="5sp"
-        android:gravity="center_horizontal"
-        android:text="내가 쓴 리뷰"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="207dp"
         android:layout_marginLeft="73dp"
         android:textSize="20sp"
         android:textColor="#484848"
@@ -115,7 +100,22 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="189dp"
+        android:layout_marginLeft="242dp"
+        android:textSize="13sp"
+        android:textColor="#484848"
+        android:letterSpacing="-0.05"
+        android:lineSpacingExtra="5sp"
+        android:gravity="center_horizontal"
+        android:text="내가 쓴 리뷰"
+        />
+
+
+    <TextView
+        android:id="@+id/mypage_myreview_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="207dp"
         android:layout_marginLeft="266dp"
         android:textSize="20sp"
         android:textColor="#484848"
@@ -125,16 +125,38 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1.5dp"
-        android:layout_marginTop="289.5dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="243.5dp"
         android:background="#a7a7a7"
         />
+
+    <View
+        android:layout_width="63dp"
+        android:layout_height="4dp"
+        android:background="#7287a7"
+        android:layout_marginStart="52.5dp"
+        android:layout_marginTop="242dp"
+        />
+
+    <View
+        android:layout_width="63dp"
+        android:layout_height="4dp"
+        android:background="#7287a7"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="242dp"
+        />
+
+    <LinearLayout
+        android:id="@+id/fragmnet_mypage_content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/mypage_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="309dp"
+        android:layout_marginTop="266dp"
         android:layout_marginLeft="19dp"
         >
 

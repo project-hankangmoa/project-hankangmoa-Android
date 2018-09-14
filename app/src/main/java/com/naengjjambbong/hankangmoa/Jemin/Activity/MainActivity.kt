@@ -22,7 +22,7 @@ import android.widget.ImageButton
 
 import com.naengjjambbong.hankangmoa.Jemin.Fragment.HomeFragment
 import com.naengjjambbong.hankangmoa.Jemin.Fragment.MapFragment
-import com.naengjjambbong.hankangmoa.Gahee.Fragment.MypageFragment
+import com.naengjjambbong.hankangmoa.Gahee.Fragment.MypageSteamListFragment
 import com.naengjjambbong.hankangmoa.Jemin.Fragment.PhotoFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -187,7 +187,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
             4 -> {
                 // '마이페이지 탭' 호출
-                val mypageFragment = MypageFragment()
+                val mypageFragment = MypageSteamListFragment()
                 transaction.replace(R.id.fragment_container, mypageFragment)
                 transaction.commit()
             }

@@ -2,15 +2,10 @@ package com.naengjjambbong.hankangmoa.Jemin.Adapter
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
-import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
-import com.naengjjambbong.hankangmoa.Gahee.Item.MypageItem
-import com.naengjjambbong.hankangmoa.Gahee.ViewHolder.MypageViewHolder
 import com.naengjjambbong.hankangmoa.Jemin.Item.HotActivityItem
 import com.naengjjambbong.hankangmoa.Jemin.ViewHolder.HotActivityViewHolder
 import com.naengjjambbong.hankangmoa.R

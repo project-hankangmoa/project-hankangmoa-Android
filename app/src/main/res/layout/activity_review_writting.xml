@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/bar">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="132dp"
+            android:textSize="17sp"
+            android:textColor="#ffffff"
+            android:text="리뷰 작성하기"
+            />
+
+    </RelativeLayout>
+    
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="322dp"
+        android:layout_height="79dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+    <RelativeLayout
+        android:layout_width="322dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="165dp"
+        android:layout_centerHorizontal="true"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="105dp"
+            android:layout_marginTop="20dp"
+            android:textSize="14sp"
+            android:textColor="#484848"
+            android:lineSpacingExtra="5sp"
+            android:text="별점을 입력해주세요"
+            />
+
+        <ImageView
+            android:layout_width="21.1dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginStart="100dp"
+            android:src="@drawable/icon_star_on"/>
+
+        <ImageView
+            android:layout_width="21.1dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginStart="125.4dp"
+            android:src="@drawable/icon_star_on"/>
+
+        <ImageView
+            android:layout_width="21.1dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginStart="150.8dp"
+            android:src="@drawable/icon_star_on"/>
+
+        <ImageView
+            android:layout_width="21.1dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginStart="176.1dp"
+            android:src="@drawable/icon_star_off"/>
+
+        <ImageView
+            android:layout_width="21.1dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginStart="201.5dp"
+            android:src="@drawable/icon_star_off"/>
+        
+        
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="322dp"
+        android:layout_height="178dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="270dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_centerHorizontal="true"
+            android:textSize="14sp"
+            android:textColor="#484848"
+            android:text="리뷰를 입력해주세요."/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="51dp"
+            android:layout_marginStart="13dp"
+            android:textSize="12sp"
+            android:textColor="#d1d1d1"
+            android:text="리뷰를 입력해주세요."/>
+
+        
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:layout_width="322dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="468dp"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="15dp"
+            android:textSize="14sp"
+            android:textColor="#484848"
+            android:text="사진첨부"
+            android:lineSpacingExtra="5sp"
+            />
+
+        <ImageView
+            android:layout_width="21dp"
+            android:layout_height="16.5dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginStart="274dp"
+            android:src="@drawable/btn_camera"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12.7dp"
+            android:layout_marginStart="304.3dp"
+            android:src="@drawable/btn_arrow3"
+            />
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>
