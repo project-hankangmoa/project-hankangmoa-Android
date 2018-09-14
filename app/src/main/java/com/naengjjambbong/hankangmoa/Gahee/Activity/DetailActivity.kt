@@ -2,11 +2,12 @@ package com.naengjjambbong.hankangmoa.Gahee.Activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.naengjjambbong.hankangmoa.R
 
 class DetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail2)
+        setContentView(R.layout.activity_detail)
     }
 }
