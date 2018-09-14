@@ -1,9 +1,8 @@
 package com.naengjjambbong.hankangmoa.Gahee.Activity
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import android.support.v7.app.AppCompatActivity
 import com.naengjjambbong.hankangmoa.R
 import kotlinx.android.synthetic.main.activity_detail.*
 

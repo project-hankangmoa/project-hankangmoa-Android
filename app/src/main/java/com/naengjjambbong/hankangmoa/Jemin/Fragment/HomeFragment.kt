@@ -16,6 +16,7 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.naengjjambbong.hankangmoa.Gahee.Activity.DetailActivity
+import com.naengjjambbong.hankangmoa.Jemin.Activity.MainActivity
 import com.naengjjambbong.hankangmoa.Jemin.Adapter.*
 import com.naengjjambbong.hankangmoa.Jemin.Item.HotActivityItem
 import com.naengjjambbong.hankangmoa.Jemin.Item.HotLocationItem
