@@ -71,6 +71,7 @@
         android:src="@drawable/icon_edit"
         />
 
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -82,6 +83,18 @@
         android:lineSpacingExtra="5sp"
         android:gravity="center_horizontal"
         android:text="찜 목록"
+        />
+
+    <TextView
+        android:id="@+id/mypage_steamlist_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="207dp"
+        android:layout_marginLeft="73dp"
+        android:textSize="20sp"
+        android:textColor="#484848"
+        android:gravity="center_horizontal"
+        android:text="12"
         />
 
     <TextView
@@ -97,18 +110,9 @@
         android:text="내가 쓴 리뷰"
         />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="207dp"
-        android:layout_marginLeft="73dp"
-        android:textSize="20sp"
-        android:textColor="#484848"
-        android:gravity="center_horizontal"
-        android:text="12"
-        />
 
     <TextView
+        android:id="@+id/mypage_myreview_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="207dp"
@@ -121,7 +125,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1.5dp"
+        android:layout_height="1dp"
         android:layout_marginTop="243.5dp"
         android:background="#a7a7a7"
         />
@@ -141,6 +145,12 @@
         android:layout_marginStart="240dp"
         android:layout_marginTop="242dp"
         />
+
+    <LinearLayout
+        android:id="@+id/fragmnet_mypage_content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/mypage_recyclerView"
