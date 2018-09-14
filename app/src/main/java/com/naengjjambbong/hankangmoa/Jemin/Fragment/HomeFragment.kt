@@ -101,14 +101,14 @@ class HomeFragment : Fragment(), View.OnClickListener{
 
         mainListItem = ArrayList()
 
-        mainListItem.add(MainListItem("https://cdn.univ20.com/wp-content/uploads/2016/09/eaf418aefb7a9c97a6abeff9e7d827a0-1.jpg"))
-        mainListItem.add(MainListItem("https://t1.daumcdn.net/cfile/tistory/197139465164BEBF0B"))
-        mainListItem.add(MainListItem("https://images.kbench.com/kbench/article/2011_04/k99180p1n7.jpg"))
-        mainListItem.add(MainListItem("https://img1.daumcdn.net/thumb/S600x434/?scode=1boon&fname=https://t1.daumcdn.net/liveboard/mediaseoul/c633692445db4724984a654ae2ee8c03.JPG"))
-        mainListItem.add(MainListItem("http://love.seoul.go.kr/pds/Board/seoul_news_write/201708_12_1.jpg"))
-        mainListItem.add(MainListItem("http://image.kmib.co.kr/online_image/2016/0117/201601171739_61120010263499_1.jpg"))
-        mainListItem.add(MainListItem("http://img.insight.co.kr/static/2018/08/11/700/42wbhmovdhjris56jo3a.jpg"))
-        mainListItem.add(MainListItem("http://cfile221.uf.daum.net/image/990B2E425B56D2680DD609"))
+        mainListItem.add(MainListItem("https://cdn.univ20.com/wp-content/uploads/2016/09/eaf418aefb7a9c97a6abeff9e7d827a0-1.jpg", "2018 한강 불꽃축제", "2018. 10. 07"))
+        mainListItem.add(MainListItem("https://t1.daumcdn.net/cfile/tistory/197139465164BEBF0B", "2018 한강 봄 꽃구경", "2018. 05. 19"))
+        mainListItem.add(MainListItem("https://images.kbench.com/kbench/article/2011_04/k99180p1n7.jpg", "한강 썰매 대회", "2018. 01. 11"))
+        mainListItem.add(MainListItem("https://img1.daumcdn.net/thumb/S600x434/?scode=1boon&fname=https://t1.daumcdn.net/liveboard/mediaseoul/c633692445db4724984a654ae2ee8c03.JPG", "2018 한강 물총 싸움", "2018. 06. 07"))
+        mainListItem.add(MainListItem("http://love.seoul.go.kr/pds/Board/seoul_news_write/201708_12_1.jpg", "2018 한강 봄꽃 축제", "2018. 03. 23"))
+        mainListItem.add(MainListItem("http://image.kmib.co.kr/online_image/2016/0117/201601171739_61120010263499_1.jpg", "한강 수영장 오픈", "2018. 08. 07"))
+        mainListItem.add(MainListItem("http://img.insight.co.kr/static/2018/08/11/700/42wbhmovdhjris56jo3a.jpg", "한강 캠프 파이어", "2018. 11. 27"))
+        mainListItem.add(MainListItem("http://cfile221.uf.daum.net/image/990B2E425B56D2680DD609", "2018 한강 망년회", "2018. 12. 27"))
 
         v.home_rc_viewPager.adapter = CustomViewPagerAdapter(MainListContentAdapter(context!!, mainListItem, requestManager))
         v.home_rc_viewPager.setPadding(50, 0, 50, 0)
