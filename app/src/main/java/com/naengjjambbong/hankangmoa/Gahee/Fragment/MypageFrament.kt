@@ -15,6 +15,7 @@ class MypageFrament :  Fragment(), View.OnClickListener {
                 //replaceFragment(MypageSteamListFragment())
             }
 
+
             mypage_myreview_tv -> {
                 mypage_myreview_tv.isSelected = true
                 mypage_steamlist_tv.isSelected = false

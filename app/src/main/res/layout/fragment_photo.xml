@@ -138,12 +138,12 @@
             />
 
         <LinearLayout
-            android:id="@+id/photo_content_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_below="@+id/photo_line_view"
-            />
+        android:id="@+id/photo_content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/photo_line_view"
+        />
 
     </RelativeLayout>
 

@@ -26,7 +26,10 @@ import com.naengjjambbong.hankangmoa.R
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
-class HomeFragment : Fragment(), View.OnClickListener {
+class HomeFragment : Fragment(), View.OnClickListener{
+    override fun onClick(v: View?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     lateinit var hotActivityItem : ArrayList<HotActivityItem>
     lateinit var mainImage : ArrayList<String>
@@ -37,15 +40,6 @@ class HomeFragment : Fragment(), View.OnClickListener {
     lateinit var requestManager: RequestManager //RequestManger는 이미지 주소를 URL로 가져오면서 사용함
 
 
-    override fun onClick(v: View?) {
-        val idx : Int = home_hot_activity_recyclerview.getChildAdapterPosition(v)
-
-        val intent = Intent(getActivity(), DetailActivity::class.java)
-        startActivity(intent)
-
-        // callFragment(RoomInformFragment())
-    }
-
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -55,6 +49,31 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
         requestManager = Glide.with(this)
         // Inflate the layout for this fragmen
+
+        v.home_concert_layout.setOnClickListener {
+            HomeMainFragment.homeMainFragment.replaceFragment(HomeDetailFragment())
+        }
+        v.home_camping_layout.setOnClickListener {
+            HomeMainFragment.homeMainFragment.replaceFragment(HomeDetailFragment())
+        }
+        v.home_sport_layout.setOnClickListener {
+            HomeMainFragment.homeMainFragment.replaceFragment(HomeDetailFragment())
+        }
+        v.home_flower_layout.setOnClickListener {
+            HomeMainFragment.homeMainFragment.replaceFragment(HomeDetailFragment())
+        }
+        v.home_experience_layout.setOnClickListener {
+            HomeMainFragment.homeMainFragment.replaceFragment(HomeDetailFragment())
+        }
+        v.home_water_layout.setOnClickListener {
+            HomeMainFragment.homeMainFragment.replaceFragment(HomeDetailFragment())
+        }
+        v.home_exhibit_layout.setOnClickListener {
+            HomeMainFragment.homeMainFragment.replaceFragment(HomeDetailFragment())
+        }
+        v.home_etc_layout.setOnClickListener {
+            HomeMainFragment.homeMainFragment.replaceFragment(HomeDetailFragment())
+        }
 
         getHotActivity(v)
         getHotLocation(v)
@@ -122,7 +141,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         hotActivityItem.add(HotActivityItem("http://image.kmib.co.kr/online_image/2016/0117/201601171739_61120010263499_1.jpg", "한강 축제","2018.08.10(금) ~ 08. 12(일)"))
         //projectItems.add(ProjectItem("https://project-cowalker.s3.ap-northeast-2.amazonaws.com/1531113346984.jpg", "ㅁㄴㅇㅎ", "ㅁㄴㅇㄹㄴㅁㅇㅎ", "ㅁㄴㅇㄹ", "ㅇㅎㅁㄴㅇㄹ"))ㅇ
         hotActivityAdapter = HotActivityAdapter(context!!, hotActivityItem, requestManager)
-        hotActivityAdapter.setOnItemClickListener(this@HomeFragment)
+        hotActivityAdapter!!.setOnItemClickListener(this@HomeFragment)
         v.home_hot_activity_recyclerview.layoutManager = GridLayoutManager(v.context, 2)
         v.home_hot_activity_recyclerview.adapter = hotActivityAdapter
 
@@ -141,8 +160,8 @@ class HomeFragment : Fragment(), View.OnClickListener {
         hotLocationItem.add(HotLocationItem("https://i.pinimg.com/originals/f7/d8/97/f7d8977935a3ef91038141f04e7e759c.png", "한강 불꽃제"))
         //projectItems.add(ProjectItem("https://project-cowalker.s3.ap-northeast-2.amazonaws.com/1531113346984.jpg", "ㅁㄴㅇㅎ", "ㅁㄴㅇㄹㄴㅁㅇㅎ", "ㅁㄴㅇㄹ", "ㅇㅎㅁㄴㅇㄹ"))ㅇ
         hotLocationAdapter = HotLocationAdapter(context!!, hotLocationItem, requestManager)
+        hotLocationAdapter!!.setOnItemClickListener(this@HomeFragment)
         v.home_hot_loaction_recyclerview.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        hotLocationAdapter.setOnItemClickListener(this@HomeFragment)
         v.home_hot_loaction_recyclerview.adapter = hotLocationAdapter
 
     }
