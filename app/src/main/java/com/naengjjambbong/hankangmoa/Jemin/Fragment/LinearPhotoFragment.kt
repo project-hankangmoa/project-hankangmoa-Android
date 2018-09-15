@@ -44,7 +44,7 @@ class LinearPhotoFragment : Fragment() {
         linearListItem.add(LinearPhotoItem("http://thumb.zumst.com/530x0/http://static.news.zumst.com/images/83/2015/07/17/PYH2015071706870001300_P2.jpg", "무지", "https://pbs.twimg.com/profile_images/3128861384/90eb3185385f6abf6c5124b18ac48db3_400x400.jpeg", 5, "물총싸움!!!", null, null, null, "반포한강공원"))
         linearListItem.add(LinearPhotoItem("http://img.hani.co.kr/imgdb/resize/2017/0924/00500788_20170924.JPG", "튜브", "http://mblogthumb3.phinf.naver.net/20150311_30/tokyobeads3_1426047254763Y1CjA_PNG/9.PNG?type=w2", 30, "불꽃 축제!!!", "http://tong.visitkorea.or.kr/cms/resource/32/2500132_image2_1.jpg", "한강 불꽃축제 2018", "2018. 10. 06 ~ 2018. 10. 06", "여의도한강공원"))
         linearListItem.add(LinearPhotoItem("http://thumb.zumst.com/530x0/http://static.news.zumst.com/images/83/2015/07/17/PYH2015071706870001300_P2.jpg", "무지", "https://pbs.twimg.com/profile_images/3128861384/90eb3185385f6abf6c5124b18ac48db3_400x400.jpeg", 5, "물총싸움!!!", null, null, null, "반포한강공원"))
-        linearPhotoAdapter = LinearPhotoAdapter(linearListItem, requestManager)
+        linearPhotoAdapter = LinearPhotoAdapter(context!!, linearListItem, requestManager)
         v.linear_photo_recyclerview.layoutManager = LinearLayoutManager(v.context)
         v.linear_photo_recyclerview.adapter = linearPhotoAdapter
     }

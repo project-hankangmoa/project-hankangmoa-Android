@@ -2,10 +2,7 @@ package com.naengjjambbong.hankangmoa.Jemin.ViewHolder
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.RelativeLayout
-import android.widget.TextView
+import android.widget.*
 import com.naengjjambbong.hankangmoa.R
 
 class LinearPhotoViewHolder(itemView : View?) : RecyclerView.ViewHolder(itemView) {
@@ -14,6 +11,7 @@ class LinearPhotoViewHolder(itemView : View?) : RecyclerView.ViewHolder(itemView
     var linearPhotoMakerName: TextView = itemView!!.findViewById(R.id.linear_photo_maker_name_tv)
     var linearPhotoMakerImageUrl: ImageView = itemView!!.findViewById(R.id.linear_photo_maker_img)
     var linearPhotoHeartCount: TextView = itemView!!.findViewById(R.id.linear_photo_heart_count_tv)
+    var linearPhotoHeartBtn: Button = itemView!!.findViewById(R.id.linear_photo_heart_btn)
     var linearPhotoReview: TextView = itemView!!.findViewById(R.id.linear_photo_review_tv)
     var linearDetailContentImageUrl: ImageView = itemView!!.findViewById(R.id.linear_detail_activity_explain_img)
     var linearDetailContentName: TextView = itemView!!.findViewById(R.id.linear_detail_activity_name_tv)
