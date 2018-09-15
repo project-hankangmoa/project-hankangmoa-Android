@@ -1,6 +1,7 @@
 package com.naengjjambbong.hankangmoa.Jemin.Fragment
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.view.View
 import android.os.Bundle
@@ -9,8 +10,12 @@ import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
+import com.naengjjambbong.hankangmoa.Gahee.Activity.DetailActivity
 import com.naengjjambbong.hankangmoa.Jemin.Activity.MainActivity
 import com.naengjjambbong.hankangmoa.Jemin.Adapter.HomeDetailAdapter
 import com.naengjjambbong.hankangmoa.Jemin.Item.HomeDetailItem
@@ -20,11 +25,21 @@ import kotlinx.android.synthetic.main.fragment_home_detail.*
 import kotlinx.android.synthetic.main.fragment_home_detail.view.*
 import kotlinx.android.synthetic.main.fragment_photo.view.*
 
+class HomeDetailFragment : Fragment(), MainActivity.OnBackPressedListener, View.OnClickListener{
 
+    var homeDetailItem = ArrayList<HomeDetailItem>()
+    lateinit var homeDetailAdapter : HomeDetailAdapter
+    lateinit var requestManager: RequestManager
+    var flag : Int = 0
 
+    override fun onClick(v: View?) {
+        val idx : Int = home_detail_recyclerview.getChildAdapterPosition(v)
+        Log.v("TAG","클릭이벤트 감지 포지션 = " + idx)
 
+        val intent = Intent(getActivity(), DetailActivity::class.java)
+        startActivity(intent)
+    }
 
-class HomeDetailFragment : Fragment(), MainActivity.OnBackPressedListener{
     var mainFragment = HomeFragment()
     override fun onBack() {
         Log.e("Other", "onBack()")
@@ -38,10 +53,6 @@ class HomeDetailFragment : Fragment(), MainActivity.OnBackPressedListener{
         // activity.onBackPressed();
     }
 
-    var homeDetailItem = ArrayList<HomeDetailItem>()
-    lateinit var homeDetailAdapter : HomeDetailAdapter
-    lateinit var requestManager: RequestManager
-    var flag : Int = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -49,6 +60,69 @@ class HomeDetailFragment : Fragment(), MainActivity.OnBackPressedListener{
         val v = inflater.inflate(R.layout.fragment_home_detail, container, false)
         // Inflate the layout for this fragmen
 
+        val category_list = arrayOf("문화/전시", "음악/콘서트", "캠핑", "스포츠", "꽃놀이", "체험", "물놀이", "기타")
+        val sort_list = arrayOf("최신순", "인기순")
+
+        val categorySpinner = v.findViewById<View>(R.id.home_detail_category_spinner) as Spinner
+        val sortSpinner = v.findViewById<View>(R.id.home_detail_sort_spinner) as Spinner
+
+        // 카테고리에 대한 Spinner
+        val adapter = ArrayAdapter(
+                activity, // 현재화면의 제어권자
+                R.layout.spin,
+                category_list)
+        adapter.setDropDownViewResource(
+                R.layout.spin_dropdown)
+        categorySpinner.adapter = adapter
+
+        // 정렬에 대한 Spinner
+        val adapter2 = ArrayAdapter(
+                activity, // 현재화면의 제어권자
+                R.layout.spin,
+                sort_list)
+        adapter2.setDropDownViewResource(
+                R.layout.spin_dropdown)
+        sortSpinner.adapter = adapter2
+
+        categorySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                if (position == 0) {
+
+                } else if (position == 1) {
+
+                } else if (position == 2) {
+
+                } else if (position == 3) {
+
+                } else if (position == 4) {
+
+                } else if (position == 5) {
+
+                } else if(position == 6) {
+
+                } else {
+
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+
+            }
+        }
+
+        sortSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                if (position == 0) {
+
+                } else {
+
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+
+            }
+        }
 
         v.home_detail_proceeding_btn.isSelected = true
         v.home_detail_proceeding_btn.setTextColor(Color.parseColor("#ffffff"))
@@ -136,6 +210,7 @@ class HomeDetailFragment : Fragment(), MainActivity.OnBackPressedListener{
 
 
         homeDetailAdapter = HomeDetailAdapter(context!!, homeDetailItem, requestManager)
+        homeDetailAdapter.setOnItemClickListener(this@HomeDetailFragment)
         v.home_detail_recyclerview.layoutManager = LinearLayoutManager(v.context)
         v.home_detail_recyclerview.adapter = homeDetailAdapter
 

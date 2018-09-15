@@ -17,12 +17,18 @@ import com.naengjjambbong.hankangmoa.R
 import kotlinx.android.synthetic.main.view_pager_main_list.view.*
 
 class HomeDetailAdapter(context : Context, private var homeDetailItem : ArrayList<HomeDetailItem>, var requestManager : RequestManager) : RecyclerView.Adapter<HomeDetailViewHolder>() {
-
     val  mContext : Context = context
+    private lateinit var onItemClick : View.OnClickListener
+
+    fun setOnItemClickListener(l : View.OnClickListener){
+        onItemClick = l
+
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeDetailViewHolder {
         val mainView : View = LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_home_detail, parent, false)
+        mainView.setOnClickListener(onItemClick)
         return HomeDetailViewHolder(mainView)
 
     }

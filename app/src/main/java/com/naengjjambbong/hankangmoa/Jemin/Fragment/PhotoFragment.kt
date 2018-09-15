@@ -130,15 +130,10 @@ class PhotoFragment : Fragment(), View.OnClickListener {
                 }
             }
 
-
             override fun onNothingSelected(parent: AdapterView<*>) {
 
             }
         }
-
-
-
-
 
         return v
     }

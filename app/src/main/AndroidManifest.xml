@@ -3,6 +3,8 @@
     package="com.naengjjambbong.hankangmoa">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -11,6 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/CustomActionBarTheme">
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="@string/kakao_app_key" />
         <activity android:name=".Jemin.Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,9 +24,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Gahee.Activity.ListActivity" />
-        <activity android:name=".Gahee.Activity.DetailActivity">
-        </activity>
-        <activity android:name=".Gahee.Activity.ReviewActivity"/>
+        <activity android:name=".Gahee.Activity.DetailActivity"></activity>
+        <activity android:name=".Gahee.Activity.ReviewActivity" />
+        <activity android:name=".Jemin.Activity.MapViewActivity"></activity>
     </application>
 
 </manifest>

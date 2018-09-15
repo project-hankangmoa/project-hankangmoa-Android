@@ -25,6 +25,12 @@ import android.widget.Toast
 import com.naengjjambbong.hankangmoa.Gahee.Fragment.MypageSteamListFragment
 import com.naengjjambbong.hankangmoa.Jemin.Fragment.*
 import kotlinx.android.synthetic.main.activity_main.*
+import android.provider.SyncStateContract.Helpers.update
+import android.content.pm.PackageInfo
+import android.util.Base64
+import java.security.MessageDigest
+import java.security.NoSuchAlgorithmException
+
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -47,6 +53,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         // 추가된 소스, Toolbar를 생성한다.
+
 
         val view = window.decorView
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -78,7 +85,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         callFragment(FRAGMENT1)
 
         main_hometab_btn.setSelected(true)
-
+        //다음개발자 - 해시 키 출력하는 코드
+        try {
+            val info = packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES)
+            for (signature in info.signatures) {
+                val md = MessageDigest.getInstance("SHA")
+                md.update(signature.toByteArray())
+                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT))
+            }
+        } catch (e: PackageManager.NameNotFoundException) {
+            e.printStackTrace()
+        } catch (e: NoSuchAlgorithmException) {
+            e.printStackTrace()
+        }
 
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
@@ -181,13 +200,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
             2 -> {
                 // '지도 탭' 호출
-                /*
                 val mapFragment = MapFragment()
-                transaction.replace(R.id.fragment_container, mapFragment)
-                transaction.commit()
-                */
-
-                val mapFragment = HomeDetailFragment()
                 transaction.replace(R.id.fragment_container, mapFragment)
                 transaction.commit()
             }
