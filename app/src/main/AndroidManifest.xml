@@ -16,7 +16,8 @@
         <meta-data
             android:name="com.kakao.sdk.AppKey"
             android:value="@string/kakao_app_key" />
-        <activity android:name=".Jemin.Activity.MainActivity">
+
+        <activity android:name=".Jemin.Activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,10 +25,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".Gahee.Activity.ListActivity" />
-        <activity android:name=".Gahee.Activity.DetailActivity"></activity>
+        <activity android:name=".Gahee.Activity.DetailActivity" />
         <activity android:name=".Gahee.Activity.ReviewActivity" />
         <activity android:name=".Gahee.Activity.ReviewWritingActivity" />
-        <activity android:name=".Jemin.Activity.MapViewActivity"></activity>
+        <activity android:name=".Jemin.Activity.MapViewActivity" />
+        <activity android:name=".Jemin.Activity.MainActivity" />
+        <activity android:name=".Jemin.Activity.LoginActivity"></activity>
     </application>
 
 </manifest>
