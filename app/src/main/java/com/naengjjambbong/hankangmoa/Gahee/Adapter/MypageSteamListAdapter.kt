@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.RequestManager
-import com.naengjjambbong.hankangmoa.Gahee.Item.MypageItem
+import com.naengjjambbong.hankangmoa.Gahee.Item.MypageSteamListItem
 import com.naengjjambbong.hankangmoa.Gahee.ViewHolder.MypageSteamListViewHolder
 import com.naengjjambbong.hankangmoa.R
 
-class MypageSteamListAdapter(private var mypageitems : ArrayList<MypageItem>, var requestManager : RequestManager) :
+class MypageSteamListAdapter(private var mypageitems : ArrayList<MypageSteamListItem>, var requestManager : RequestManager) :
         RecyclerView.Adapter<MypageSteamListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MypageSteamListViewHolder {

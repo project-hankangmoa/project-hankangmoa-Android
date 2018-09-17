@@ -20,8 +20,9 @@
             />
 
     </RelativeLayout>
-    
+
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/activity_review_writing_recyclerview"
         android:layout_width="322dp"
         android:layout_height="79dp"
         android:layout_centerHorizontal="true"
@@ -82,8 +83,8 @@
             android:layout_marginTop="45dp"
             android:layout_marginStart="201.5dp"
             android:src="@drawable/icon_star_off"/>
-        
-        
+
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -110,9 +111,9 @@
             android:textColor="#d1d1d1"
             android:text="리뷰를 입력해주세요."/>
 
-        
+
     </RelativeLayout>
-    
+
     <RelativeLayout
         android:layout_width="322dp"
         android:layout_height="46dp"

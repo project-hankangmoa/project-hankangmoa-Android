@@ -26,6 +26,7 @@
         <activity android:name=".Gahee.Activity.ListActivity" />
         <activity android:name=".Gahee.Activity.DetailActivity"></activity>
         <activity android:name=".Gahee.Activity.ReviewActivity" />
+        <activity android:name=".Gahee.Activity.ReviewWritingActivity" />
         <activity android:name=".Jemin.Activity.MapViewActivity"></activity>
     </application>
 

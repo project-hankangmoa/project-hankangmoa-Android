@@ -124,43 +124,19 @@
         />
 
     <View
+        android:id="@+id/fragment_mypage_view"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="243.5dp"
         android:background="#a7a7a7"
         />
 
-    <View
-        android:layout_width="63dp"
-        android:layout_height="4dp"
-        android:background="#7287a7"
-        android:layout_marginStart="52.5dp"
-        android:layout_marginTop="242dp"
-        />
-
-    <View
-        android:layout_width="63dp"
-        android:layout_height="4dp"
-        android:background="#7287a7"
-        android:layout_marginStart="240dp"
-        android:layout_marginTop="242dp"
-        />
-
     <LinearLayout
         android:id="@+id/fragmnet_mypage_content_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/fragment_mypage_view"
         android:orientation="vertical"/>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/mypage_recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="266dp"
-        android:layout_marginLeft="19dp"
-        >
-
-    </android.support.v7.widget.RecyclerView>
 
 
 </RelativeLayout>

@@ -28,6 +28,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import android.provider.SyncStateContract.Helpers.update
 import android.content.pm.PackageInfo
 import android.util.Base64
+import com.naengjjambbong.hankangmoa.Gahee.Fragment.MypageFragment
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
@@ -215,7 +216,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
             4 -> {
                 // '마이페이지 탭' 호출
-                val mypageFragment = MypageSteamListFragment()
+                val mypageFragment = MypageFragment()
                 transaction.replace(R.id.fragment_container, mypageFragment)
                 transaction.commit()
             }
