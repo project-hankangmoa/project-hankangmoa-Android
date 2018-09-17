@@ -34,8 +34,8 @@
     
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/register_profile_img"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:src="@drawable/img_profile"
         android:layout_below="@+id/register_semi_content_tv"
         android:layout_centerHorizontal="true"
@@ -44,12 +44,12 @@
 
     <Button
         android:id="@+id/register_change_photo_btn"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:background="@drawable/btn_image_edit"
-        android:layout_marginTop="188dp"
+        android:layout_marginTop="205dp"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="162dp"
+        android:layout_marginRight="145dp"
         />
 
     <RelativeLayout

@@ -21,14 +21,60 @@
 
     </RelativeLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/activity_review_writing_recyclerview"
+    <RelativeLayout
+        android:id="@+id/activity_review_writing_layout"
         android:layout_width="322dp"
-        android:layout_height="79dp"
+        android:layout_height="85dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp">
+        android:layout_marginTop="60dp"
+        android:background="#ffffff"
+        >
 
-    </android.support.v7.widget.RecyclerView>
+        <ImageView
+            android:id="@+id/review_write_activity_img"
+            android:layout_width="85.1dp"
+            android:layout_height="85.1dp"
+            android:src="@drawable/example_content"
+            android:scaleType="fitXY"
+            />
+
+        <TextView
+            android:id="@+id/review_wirte_activity_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="한강 불꽃 축제"
+            android:textSize="15sp"
+            android:textColor="#0f0f0f"
+            android:textStyle="bold"
+            android:layout_toRightOf="@+id/review_write_activity_img"
+            android:layout_marginLeft="13.9dp"
+            />
+
+        <TextView
+            android:id="@+id/review_wirte_activity_range_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2018. 08. 10 ~ 2018. 08. 12"
+            android:textSize="12sp"
+            android:textColor="#484848"
+            android:layout_below="@+id/review_wirte_activity_name_tv"
+            android:layout_alignLeft="@+id/review_wirte_activity_name_tv"
+            android:layout_marginTop="5dp"
+            />
+
+        <TextView
+            android:id="@+id/review_wirte_activity_location_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2018. 08. 10 ~ 2018. 08. 12"
+            android:textSize="12sp"
+            android:textColor="#484848"
+            android:layout_below="@+id/review_wirte_activity_range_tv"
+            android:layout_alignLeft="@+id/review_wirte_activity_name_tv"
+            android:layout_marginTop="0.4dp"
+            />
+
+    </RelativeLayout>
 
 
     <RelativeLayout
@@ -148,7 +194,20 @@
             />
     </RelativeLayout>
 
-
-
+    <Button
+        android:id="@+id/review_write_confirm_btn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/btn_complete"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="35dp"
+        android:text="입력완료"
+        android:textSize="15sp"
+        android:textColor="#ffffff"
+        >
+    </Button>
 
 </RelativeLayout>
