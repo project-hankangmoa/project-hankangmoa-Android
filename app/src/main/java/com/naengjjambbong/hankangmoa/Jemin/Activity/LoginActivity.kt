@@ -19,7 +19,8 @@ class LoginActivity : AppCompatActivity() {
         }
 
         login_register_tv.setOnClickListener {
-            //var intent = Intent(applicationContext, Re)
+            var intent = Intent(applicationContext, RegisterActivity::class.java)
+            startActivity(intent)
         }
 
     }
