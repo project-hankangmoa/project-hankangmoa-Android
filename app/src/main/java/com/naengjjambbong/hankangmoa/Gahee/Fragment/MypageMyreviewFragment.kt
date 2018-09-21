@@ -37,9 +37,9 @@ class MypageMyreviewFragment : Fragment() {
     fun review(v : View) {
         requestManager = Glide.with(this)
         reviewItem = ArrayList()
-        reviewItem.add(ReviewItem("","김지혜", "시적 순간의 생명력으로 재창조했다. 그만의 고유한 방식으로 촬영된 ‘필름다이어리’ 작품들은 지나간 시간들에 살아 움직이는 이미지의 숨결을 불어넣는다. 덧없이 찰나...","","2017.12.29" ))
-        reviewItem.add(ReviewItem("","이재란", "시적 순간의 생명력으로 재창조했다. 그만의 고유한 방식으로 촬영된 ‘필름다이어리’ 작품들은 지나간 시간들에 살아 움직이는 이미지의 숨결을 불어넣는다. 덧없이 찰나...","","2017.12.23" ))
-        reviewItem.add(ReviewItem("","유가희", "시적 순간의 생명력으로 재창조했다. 그만의 고유한 방식으로 촬영된 ‘필름다이어리’ 작품들은 지나간 시간들에 살아 움직이는 이미지의 숨결을 불어넣는다. 덧없이 찰나...","","2017.12.29" ))
+        reviewItem.add(ReviewItem("한강몽땅 종이배 경주대회","","김지혜", "시적 순간의 생명력으로 재창조했다. 그만의 고유한 방식으로 촬영된 ‘필름다이어리’ 작품들은 지나간 시간들에 살아 움직이는 이미지의 숨결을 불어넣는다. 덧없이 찰나...","","2017.12.29" ))
+        reviewItem.add(ReviewItem("한강 불꽃 축제","","이재란", "시적 순간의 생명력으로 재창조했다. 그만의 고유한 방식으로 촬영된 ‘필름다이어리’ 작품들은 지나간 시간들에 살아 움직이는 이미지의 숨결을 불어넣는다. 덧없이 찰나...","","2017.12.23" ))
+        reviewItem.add(ReviewItem("어벤져스","","유가희", "시적 순간의 생명력으로 재창조했다. 그만의 고유한 방식으로 촬영된 ‘필름다이어리’ 작품들은 지나간 시간들에 살아 움직이는 이미지의 숨결을 불어넣는다. 덧없이 찰나...","","2017.12.29" ))
 
         //projectItems.add(ProjectItem("https://project-cowalker.s3.ap-northeast-2.amazonaws.com/1531113346984.jpg", "ㅁㄴㅇㅎ", "ㅁㄴㅇㄹㄴㅁㅇㅎ", "ㅁㄴㅇㄹ", "ㅇㅎㅁㄴㅇㄹ"))ㅇ
         reviewAdapter = ReviewAdapter(reviewItem, requestManager)
