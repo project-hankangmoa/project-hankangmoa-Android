@@ -160,25 +160,33 @@
             android:lineSpacingExtra="5sp"
             />
 
+        <LinearLayout
+            android:id="@+id/review_write_add_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="207dp"
+            android:layout_toRightOf="@+id/review_write_add_tv">
+
 
         <ImageView
-            android:id="@+id/review_write_add_img"
+
             android:layout_width="21dp"
             android:layout_height="16.5dp"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/review_write_add_tv"
-            android:layout_marginStart="207dp"
             android:src="@drawable/btn_camera"
             />
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="16.5dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="9.3dp"
             android:layout_toRightOf="@+id/review_write_add_img"
             android:src="@drawable/btn_arrow3"
             />
+
+        </LinearLayout>
 
 
 
