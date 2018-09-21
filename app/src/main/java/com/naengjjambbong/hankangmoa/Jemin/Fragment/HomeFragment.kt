@@ -115,7 +115,7 @@ class HomeFragment : Fragment(), View.OnClickListener{
         v.home_rc_viewPager.pageMargin = -200
         v.home_rc_viewPager.offscreenPageLimit = 9
 
-        v.home_rc_viewPager.setClipToPadding(false)
+        v.home_rc_viewPager.clipToPadding = false
        // v.home_rc_viewPager.setPadding(40, 0, 40, 0)
         //v.home_rc_viewPager.setPageMargin(resources.displayMetrics.widthPixels / -9)
 
@@ -141,7 +141,7 @@ class HomeFragment : Fragment(), View.OnClickListener{
         hotActivityItem.add(HotActivityItem("http://image.kmib.co.kr/online_image/2016/0117/201601171739_61120010263499_1.jpg", "한강 축제","2018.08.10(금) ~ 08. 12(일)"))
         //projectItems.add(ProjectItem("https://project-cowalker.s3.ap-northeast-2.amazonaws.com/1531113346984.jpg", "ㅁㄴㅇㅎ", "ㅁㄴㅇㄹㄴㅁㅇㅎ", "ㅁㄴㅇㄹ", "ㅇㅎㅁㄴㅇㄹ"))ㅇ
         hotActivityAdapter = HotActivityAdapter(context!!, hotActivityItem, requestManager)
-        hotActivityAdapter!!.setOnItemClickListener(this@HomeFragment)
+        hotActivityAdapter.setOnItemClickListener(this@HomeFragment)
         v.home_hot_activity_recyclerview.layoutManager = GridLayoutManager(v.context, 2)
         v.home_hot_activity_recyclerview.adapter = hotActivityAdapter
 
@@ -160,7 +160,7 @@ class HomeFragment : Fragment(), View.OnClickListener{
         hotLocationItem.add(HotLocationItem("https://i.pinimg.com/originals/f7/d8/97/f7d8977935a3ef91038141f04e7e759c.png", "한강 불꽃제"))
         //projectItems.add(ProjectItem("https://project-cowalker.s3.ap-northeast-2.amazonaws.com/1531113346984.jpg", "ㅁㄴㅇㅎ", "ㅁㄴㅇㄹㄴㅁㅇㅎ", "ㅁㄴㅇㄹ", "ㅇㅎㅁㄴㅇㄹ"))ㅇ
         hotLocationAdapter = HotLocationAdapter(context!!, hotLocationItem, requestManager)
-        hotLocationAdapter!!.setOnItemClickListener(this@HomeFragment)
+        hotLocationAdapter.setOnItemClickListener(this@HomeFragment)
         v.home_hot_loaction_recyclerview.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         v.home_hot_loaction_recyclerview.adapter = hotLocationAdapter
 

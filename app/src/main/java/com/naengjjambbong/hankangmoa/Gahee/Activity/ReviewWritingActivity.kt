@@ -1,14 +1,21 @@
 package com.naengjjambbong.hankangmoa.Gahee.Activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
+import android.widget.Button
+import android.widget.RatingBar
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.naengjjambbong.hankangmoa.Gahee.Adapter.MypageSteamListAdapter
 import com.naengjjambbong.hankangmoa.Gahee.Item.MypageSteamListItem
 import com.naengjjambbong.hankangmoa.R
+import kotlinx.android.synthetic.main.activity_review.*
 import kotlinx.android.synthetic.main.activity_review_writting.*
+
 
 class ReviewWritingActivity : AppCompatActivity() {
 
@@ -16,10 +23,27 @@ class ReviewWritingActivity : AppCompatActivity() {
     lateinit var mypageSteamListAdapter: MypageSteamListAdapter
     lateinit var requestManager: RequestManager //RequestManger는 이미지 주소를 URL로 가져오면서 사용함
 
+    //lateinit var complete_button : Button
+    lateinit var star_rating_bar : RatingBar
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_review_writting)
+
+        star_rating_bar = findViewById(R.id.review_write_rating_bar) as RatingBar
+        //complete_button = findViewById<>(R.id.)
+
+        review_write_confirm_btn.setOnClickListener{
+            var intent = Intent(this, ReviewActivity::class.java)
+            startActivity(intent)
+
+        }
+
+        fun click(view: View){
+            val ratingvalue = star_rating_bar.rating
+            //Toast.makeText(this, "Rating is :" + ratingvalue, Toast.LENGTH_LONG.show())
+        }
 
         mypageSteamListItem = ArrayList()
         mypage()
@@ -34,4 +58,6 @@ class ReviewWritingActivity : AppCompatActivity() {
         mypageSteamListAdapter = MypageSteamListAdapter(mypageSteamListItem, requestManager)
 
     }
+
+
 }

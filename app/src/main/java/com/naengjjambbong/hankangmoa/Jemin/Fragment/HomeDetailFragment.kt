@@ -36,7 +36,7 @@ class HomeDetailFragment : Fragment(), MainActivity.OnBackPressedListener, View.
         val idx : Int = home_detail_recyclerview.getChildAdapterPosition(v)
         Log.v("TAG","클릭이벤트 감지 포지션 = " + idx)
 
-        val intent = Intent(getActivity(), DetailActivity::class.java)
+        val intent = Intent(activity, DetailActivity::class.java)
         startActivity(intent)
     }
 

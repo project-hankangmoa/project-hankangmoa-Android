@@ -9,7 +9,6 @@ import com.bumptech.glide.RequestManager
 import com.naengjjambbong.hankangmoa.Gahee.Adapter.ReviewAdapter
 import com.naengjjambbong.hankangmoa.Gahee.Item.ReviewItem
 import com.naengjjambbong.hankangmoa.R
-import com.naengjjambbong.hankangmoa.R.layout.item_review_activity
 import kotlinx.android.synthetic.main.activity_review.*
 
 class ReviewActivity : AppCompatActivity() {

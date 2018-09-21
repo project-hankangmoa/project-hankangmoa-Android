@@ -27,7 +27,7 @@
         android:layout_height="85dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
-        android:background="#ffffff"
+        android:background="@drawable/review_writing_round"
         >
 
         <ImageView
@@ -48,6 +48,7 @@
             android:textStyle="bold"
             android:layout_toRightOf="@+id/review_write_activity_img"
             android:layout_marginLeft="13.9dp"
+            android:layout_marginTop="12dp"
             />
 
         <TextView
@@ -66,7 +67,7 @@
             android:id="@+id/review_wirte_activity_location_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2018. 08. 10 ~ 2018. 08. 12"
+            android:text="난지 한강공원"
             android:textSize="12sp"
             android:textColor="#484848"
             android:layout_below="@+id/review_wirte_activity_range_tv"
@@ -82,6 +83,7 @@
         android:layout_height="85dp"
         android:layout_marginTop="165dp"
         android:layout_centerHorizontal="true"
+        android:background="@drawable/review_writing_round"
         >
 
         <TextView
@@ -95,40 +97,16 @@
             android:text="별점을 입력해주세요"
             />
 
-        <ImageView
-            android:layout_width="21.1dp"
-            android:layout_height="20dp"
+        <RatingBar
+            android:id="@+id/review_write_rating_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="45dp"
-            android:layout_marginStart="100dp"
-            android:src="@drawable/icon_star_on"/>
-
-        <ImageView
-            android:layout_width="21.1dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="45dp"
-            android:layout_marginStart="125.4dp"
-            android:src="@drawable/icon_star_on"/>
-
-        <ImageView
-            android:layout_width="21.1dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="45dp"
-            android:layout_marginStart="150.8dp"
-            android:src="@drawable/icon_star_on"/>
-
-        <ImageView
-            android:layout_width="21.1dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="45dp"
-            android:layout_marginStart="176.1dp"
-            android:src="@drawable/icon_star_off"/>
-
-        <ImageView
-            android:layout_width="21.1dp"
-            android:layout_height="20dp"
-            android:layout_marginTop="45dp"
-            android:layout_marginStart="201.5dp"
-            android:src="@drawable/icon_star_off"/>
+            android:layout_centerHorizontal="true"
+            android:stepSize="0.5"
+            android:numStars="5"
+            style="@style/ratingbar"
+            />
 
 
     </RelativeLayout>
@@ -137,7 +115,8 @@
         android:layout_width="322dp"
         android:layout_height="178dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="270dp">
+        android:layout_marginTop="270dp"
+        android:background="@drawable/review_writing_round">
 
         <TextView
             android:layout_width="wrap_content"
@@ -155,52 +134,62 @@
             android:layout_marginStart="13dp"
             android:textSize="12sp"
             android:textColor="#d1d1d1"
-            android:text="리뷰를 입력해주세요."/>
+            android:hint="리뷰를 입력해주세요."
+            />
 
 
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/review_write_add_box"
         android:layout_width="322dp"
         android:layout_height="46dp"
         android:layout_marginTop="468dp"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/review_writing_round">
 
         <TextView
+            android:id="@+id/review_write_add_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="19dp"
-            android:layout_marginTop="15dp"
+            android:layout_centerVertical="true"
             android:textSize="14sp"
             android:textColor="#484848"
             android:text="사진첨부"
             android:lineSpacingExtra="5sp"
             />
 
+
         <ImageView
+            android:id="@+id/review_write_add_img"
             android:layout_width="21dp"
             android:layout_height="16.5dp"
-            android:layout_marginTop="27dp"
-            android:layout_marginStart="274dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/review_write_add_tv"
+            android:layout_marginStart="207dp"
             android:src="@drawable/btn_camera"
             />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12.7dp"
-            android:layout_marginStart="304.3dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="9.3dp"
+            android:layout_toRightOf="@+id/review_write_add_img"
             android:src="@drawable/btn_arrow3"
             />
+
+
+
     </RelativeLayout>
 
     <Button
         android:id="@+id/review_write_confirm_btn"
-        android:layout_width="match_parent"
+        android:layout_width="260dp"
         android:layout_height="40dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
+        android:layout_marginTop="546dp"
+        android:layout_centerHorizontal="true"
         android:background="@drawable/btn_complete"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="35dp"
@@ -211,3 +200,4 @@
     </Button>
 
 </RelativeLayout>
+

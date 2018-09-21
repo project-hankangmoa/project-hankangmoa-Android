@@ -2,14 +2,13 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        >
+        android:layout_weight="1">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -32,14 +31,14 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="155dp"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="38dp"
                     android:src="@drawable/img_category" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="91dp"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginTop="69dp"
                     android:letterSpacing="-0.05"
                     android:lineSpacingExtra="3sp"
@@ -47,61 +46,59 @@
                     android:textColor="#ffffff"
                     android:textSize="23sp" />
 
-                <ImageView
-                    android:id="@+id/detail_star_img1"
-                    android:layout_marginStart="129dp"
-                    android:layout_marginTop="97dp"
-                    android:layout_width="13.3dp"
-                    android:layout_height="12.6dp"
-                    android:src="@drawable/img_star"
-                    />
-
-                <ImageView
-                    android:id="@+id/detail_star_img2"
-                    android:layout_marginStart="144.3dp"
-                    android:layout_marginTop="97dp"
-                    android:layout_width="13.3dp"
-                    android:layout_height="12.6dp"
-                    android:src="@drawable/img_star"
-                    />
-
-                <ImageView
-                    android:id="@+id/detail_star_img3"
-                    android:layout_marginStart="159.2dp"
-                    android:layout_marginTop="97dp"
-                    android:layout_width="13.3dp"
-                    android:layout_height="12.6dp"
-                    android:src="@drawable/img_star"
-                    />
-
-                <ImageView
-                    android:id="@+id/detail_star_img4"
-                    android:layout_marginStart="174.1dp"
-                    android:layout_marginTop="97dp"
-                    android:layout_width="13.3dp"
-                    android:layout_height="12.6dp"
-                    android:src="@drawable/img_star"
-                    />
-
-                <ImageView
-                    android:id="@+id/detail_star_img5"
-                    android:layout_marginStart="189.1dp"
-                    android:layout_marginTop="97dp"
-                    android:layout_width="6.6dp"
-                    android:layout_height="12.6dp"
-                    android:src="@drawable/icon_starhalf"
-                    />
-
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="200.1dp"
-                    android:layout_marginTop="96.8dp"
-                    android:letterSpacing="-0.03"
-                    android:lineSpacingExtra="2sp"
-                    android:text="3.5"
-                    android:textColor="#ffffff"
-                    android:textSize="12sp" />
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="97dp">
+
+                    <ImageView
+                        android:id="@+id/detail_star_img1"
+                        android:layout_width="13.3dp"
+                        android:layout_height="12.6dp"
+                        android:src="@drawable/img_star" />
+
+                    <ImageView
+                        android:id="@+id/detail_star_img2"
+                        android:layout_marginStart="1.7dp"
+                        android:layout_width="13.3dp"
+                        android:layout_height="12.6dp"
+
+                        android:src="@drawable/img_star" />
+
+                    <ImageView
+                        android:id="@+id/detail_star_img3"
+                        android:layout_width="13.3dp"
+                        android:layout_height="12.6dp"
+                        android:layout_marginStart="1.7dp"
+                        android:src="@drawable/img_star" />
+
+                    <ImageView
+                        android:id="@+id/detail_star_img4"
+                        android:layout_width="13.3dp"
+                        android:layout_height="12.6dp"
+                        android:layout_marginStart="1.7dp"
+                        android:src="@drawable/img_star" />
+
+                    <ImageView
+                        android:id="@+id/detail_star_img5"
+                        android:layout_width="6.6dp"
+                        android:layout_height="12.6dp"
+                        android:layout_marginStart="1.8dp"
+                        android:src="@drawable/icon_starhalf" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="4.4dp"
+                        android:letterSpacing="-0.03"
+                        android:lineSpacingExtra="2sp
+"
+                        android:text="3.5"
+                        android:textColor="#ffffff"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
 
             </RelativeLayout>
 
@@ -111,7 +108,7 @@
                 android:layout_height="175dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="193dp"
-                android:background="#ffffff">
+                android:background="@drawable/round_button">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -210,7 +207,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_marginStart="155.2dp"
                     android:layout_marginTop="359.6dp"
-                    android:gravity="center"
+                    android:layout_alignBaseline="@+id/detail_activity_review_img"
                     android:text="리뷰보기"
                     android:textColor="#ffffff"
                     android:textSize="15sp" />
@@ -220,7 +217,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24.5dp"
                     android:layout_marginTop="432dp"
-                    android:src="@drawable/icon_title"/>
+                    android:src="@drawable/icon_title" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -297,5 +294,5 @@
         android:lineSpacingExtra="3sp"
         android:text="예약하기"
         android:textColor="@color/white"
-        android:textSize="17sp"/>
+        android:textSize="17sp" />
 </LinearLayout>

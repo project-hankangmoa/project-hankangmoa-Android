@@ -2,11 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
     <View
         android:layout_width="63dp"
-        android:layout_height="4dp"
+        android:layout_height="2dp"
         android:background="#7287a7"
         android:layout_marginStart="52.5dp"
         />
@@ -17,7 +18,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="5dp"
-        android:layout_marginRight="15dp">
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="8dp">
 
 
     </android.support.v7.widget.RecyclerView>
