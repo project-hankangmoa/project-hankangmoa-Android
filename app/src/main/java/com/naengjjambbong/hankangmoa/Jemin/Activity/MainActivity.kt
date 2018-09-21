@@ -121,11 +121,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         } else {
             requestMyLocation()
         }//마시멜로 아래
-
-
-
-
-
     }
 
 

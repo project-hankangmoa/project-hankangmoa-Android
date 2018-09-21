@@ -15,7 +15,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="328dp"
-            android:background="@drawable/background">
+            android:background="@drawable/main_background">
 
             <TextView
                 android:id="@+id/home_today_hankang_title_tv"

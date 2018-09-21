@@ -32,8 +32,6 @@ class ReviewWritingActivity : AppCompatActivity() {
         mypageSteamListItem.add(MypageSteamListItem("https://i.pinimg.com/originals/f7/d8/97/f7d8977935a3ef91038141f04e7e759c.png", "한강불ㅇ제", "2019.04.02~", "나루원"))
         //projectItems.add(ProjectItem("https://project-cowalker.s3.ap-northeast-2.amazonaws.com/1531113346984.jpg", "ㅁㄴㅇㅎ", "ㅁㄴㅇㄹㄴㅁㅇㅎ", "ㅁㄴㅇㄹ", "ㅇㅎㅁㄴㅇㄹ"))ㅇ
         mypageSteamListAdapter = MypageSteamListAdapter(mypageSteamListItem, requestManager)
-        activity_review_writing_recyclerview.layoutManager = LinearLayoutManager(this)
-        activity_review_writing_recyclerview.adapter = mypageSteamListAdapter
 
     }
 }
