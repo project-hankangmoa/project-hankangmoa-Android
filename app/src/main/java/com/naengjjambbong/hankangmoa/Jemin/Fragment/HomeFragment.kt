@@ -25,6 +25,8 @@ import com.naengjjambbong.hankangmoa.Jemin.ViewPager.CustomViewPagerAdapter
 import com.naengjjambbong.hankangmoa.R
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 class HomeFragment : Fragment(), View.OnClickListener{
     override fun onClick(v: View?) {
@@ -40,12 +42,18 @@ class HomeFragment : Fragment(), View.OnClickListener{
     lateinit var requestManager: RequestManager //RequestManger는 이미지 주소를 URL로 가져오면서 사용함
 
 
+
+
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
         val v = inflater.inflate(R.layout.fragment_home, container, false)
+
+
+
+
 
         requestManager = Glide.with(this)
         // Inflate the layout for this fragmen
