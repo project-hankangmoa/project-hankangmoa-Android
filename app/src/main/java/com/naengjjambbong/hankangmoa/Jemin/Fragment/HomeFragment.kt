@@ -1,7 +1,6 @@
 package com.naengjjambbong.hankangmoa.Jemin.Fragment
 
 import android.annotation.TargetApi
-import android.content.Intent
 import android.graphics.Point
 import android.os.Build
 import android.os.Bundle
@@ -15,17 +14,22 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
-import com.naengjjambbong.hankangmoa.Gahee.Activity.DetailActivity
-import com.naengjjambbong.hankangmoa.Jemin.Activity.MainActivity
 import com.naengjjambbong.hankangmoa.Jemin.Adapter.*
 import com.naengjjambbong.hankangmoa.Jemin.Item.HotActivityItem
 import com.naengjjambbong.hankangmoa.Jemin.Item.HotLocationItem
 import com.naengjjambbong.hankangmoa.Jemin.Item.MainListItem
 import com.naengjjambbong.hankangmoa.Jemin.ViewPager.CustomViewPagerAdapter
+import com.naengjjambbong.hankangmoa.Network.Get.GetWeatherMessage
+import com.naengjjambbong.hankangmoa.Network.Get.Response.GetWeatherResponse
+import com.naengjjambbong.hankangmoa.Network.Get.RowData.GetWeatherData
+import com.naengjjambbong.hankangmoa.Network.Get.RowData.GetWeatherDetailData
+import com.naengjjambbong.hankangmoa.Network.SKPlanetApiController
+import com.naengjjambbong.hankangmoa.Network.SKPlanetNetworkService
 import com.naengjjambbong.hankangmoa.R
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
-import java.text.SimpleDateFormat
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.*
 
 class HomeFragment : Fragment(), View.OnClickListener{
@@ -41,7 +45,16 @@ class HomeFragment : Fragment(), View.OnClickListener{
     lateinit var hotLocationAdapter: HotLocationAdapter
     lateinit var requestManager: RequestManager //RequestManger는 이미지 주소를 URL로 가져오면서 사용함
 
+    var currentTemp : String = ""
+    var todayHighTemp : String = ""
+    var todayLowTemp : String = ""
 
+    lateinit var skPlanetNetworkService : SKPlanetNetworkService
+
+    var selectedCategoryNum : Int = 0
+    lateinit var weatherMessage : GetWeatherMessage
+    lateinit var weatherData : ArrayList<GetWeatherData>
+    lateinit var weatherDeatailData : GetWeatherDetailData
 
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -52,36 +65,45 @@ class HomeFragment : Fragment(), View.OnClickListener{
         val v = inflater.inflate(R.layout.fragment_home, container, false)
 
 
-
-
-
         requestManager = Glide.with(this)
         // Inflate the layout for this fragmen
 
+        getWeahterData(v)
+
         v.home_concert_layout.setOnClickListener {
             HomeMainFragment.homeMainFragment.replaceFragment(HomeDetailFragment())
+            selectedCategoryNum = 0
         }
         v.home_camping_layout.setOnClickListener {
             HomeMainFragment.homeMainFragment.replaceFragment(HomeDetailFragment())
+            selectedCategoryNum = 2
         }
         v.home_sport_layout.setOnClickListener {
             HomeMainFragment.homeMainFragment.replaceFragment(HomeDetailFragment())
+            selectedCategoryNum = 3
         }
         v.home_flower_layout.setOnClickListener {
             HomeMainFragment.homeMainFragment.replaceFragment(HomeDetailFragment())
+            selectedCategoryNum = 0
         }
         v.home_experience_layout.setOnClickListener {
             HomeMainFragment.homeMainFragment.replaceFragment(HomeDetailFragment())
+            selectedCategoryNum = 0
         }
         v.home_water_layout.setOnClickListener {
             HomeMainFragment.homeMainFragment.replaceFragment(HomeDetailFragment())
+            selectedCategoryNum = 6
         }
         v.home_exhibit_layout.setOnClickListener {
             HomeMainFragment.homeMainFragment.replaceFragment(HomeDetailFragment())
+            selectedCategoryNum = 0
         }
         v.home_etc_layout.setOnClickListener {
             HomeMainFragment.homeMainFragment.replaceFragment(HomeDetailFragment())
+            selectedCategoryNum = 0
         }
+
+        homeFragment = this
 
         getHotActivity(v)
         getHotLocation(v)
@@ -171,6 +193,43 @@ class HomeFragment : Fragment(), View.OnClickListener{
         hotLocationAdapter!!.setOnItemClickListener(this@HomeFragment)
         v.home_hot_loaction_recyclerview.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         v.home_hot_loaction_recyclerview.adapter = hotLocationAdapter
+
+    }
+
+    companion object {
+        lateinit var homeFragment : HomeFragment
+    }
+
+    private fun getWeahterData(v : View) {
+
+
+        try {
+            skPlanetNetworkService = SKPlanetApiController.getRetrofit().create(SKPlanetNetworkService::class.java)
+            var getWeatherResponse = skPlanetNetworkService.getWeatherData("0ea95da3-7458-424f-b85c-fa3bef586a6a", "2", "37.5267449", "127.07869359999995", "", "", "", "") // 네트워크 서비스의 getContent 함수를 받아옴
+            Log.v("TAG","날씨 데이터 GET 통신 시작 전")
+            getWeatherResponse.enqueue(object : Callback<GetWeatherResponse> {
+                override fun onResponse(call: Call<GetWeatherResponse>?, response: Response<GetWeatherResponse>?) {
+                    if(response!!.isSuccessful) {
+                        Log.v("TAG","날씨 데이터 GET 통신 성공")
+                        currentTemp = response!!.body()!!.weather.minutely[0].temperature.tc!!
+                        todayHighTemp = response!!.body()!!.weather.minutely[0].temperature.tmax!!
+                        todayLowTemp = response!!.body()!!.weather.minutely[0].temperature.tmin!!
+                        Log.v("asdf", "날씨 현재 기온 = " + currentTemp)
+                        Log.v("asdf", "날씨 최고 기온 = " + todayHighTemp)
+                        Log.v("asdf", "날씨 최저 기온 = " + todayLowTemp)
+
+                        v.home_current_temp_tv.text = currentTemp.substring(0,currentTemp.indexOf(".")) + "˚"
+                        v.home_today_temp_tv.text = todayHighTemp.substring(0,currentTemp.indexOf(".")) + "˚/ " + todayLowTemp.substring(0,currentTemp.indexOf(".")) + "˚"
+
+                    }
+                }
+
+                override fun onFailure(call: Call<GetWeatherResponse>?, t: Throwable?) {
+                    Log.v("TAG","날씨 데이터 통신 실패" + t.toString())
+                }
+            })
+        } catch (e: Exception) {
+        }
 
     }
 }

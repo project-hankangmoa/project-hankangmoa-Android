@@ -20,6 +20,7 @@ import kotlinx.android.synthetic.main.view_pager_main_list.view.*
 class HomeDetailAdapter(context : Context, private var homeDetailItem : ArrayList<MongDDangItem>, var requestManager : RequestManager) : RecyclerView.Adapter<HomeDetailViewHolder>() {
     val  mContext : Context = context
     private lateinit var onItemClick : View.OnClickListener
+    var heartFlag : Int = 0
 
     fun setOnItemClickListener(l : View.OnClickListener){
         onItemClick = l
@@ -46,6 +47,18 @@ class HomeDetailAdapter(context : Context, private var homeDetailItem : ArrayLis
         holder.homeDetailActivityImage.clipToOutline = true
         holder.homeDetailActivityName.text = homeDetailItem[position].homeDetailActivityName
         holder.homeDetailActivityRange.text = homeDetailItem[position].homeDetailActivityRange
+
+        holder.homeDetailActivityHearImage.setOnClickListener {
+            if(heartFlag == 0)
+            {
+                holder.homeDetailActivityHearImage.isSelected = true
+                heartFlag = 1
+            }
+            else{
+                holder.homeDetailActivityHearImage.isSelected = false
+                heartFlag = 0
+            }
+        }
 
         //holder.homeDetailActivityCount.text = homeDetailItem[position].homeDetailActivityCount.toString()
 
