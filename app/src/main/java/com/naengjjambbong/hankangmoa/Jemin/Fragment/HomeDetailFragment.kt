@@ -20,10 +20,13 @@ import com.naengjjambbong.hankangmoa.Jemin.Activity.MainActivity
 import com.naengjjambbong.hankangmoa.Jemin.Adapter.HomeDetailAdapter
 import com.naengjjambbong.hankangmoa.Jemin.Item.HomeDetailItem
 import com.naengjjambbong.hankangmoa.Jemin.Item.MongDDangItem
+import com.naengjjambbong.hankangmoa.Network.Get.GetCampingMessage
 import com.naengjjambbong.hankangmoa.Network.Get.GetMongDDangMesssage
+import com.naengjjambbong.hankangmoa.Network.Get.Response.GetCampingResponse
 import com.naengjjambbong.hankangmoa.Network.Get.Response.GetImageSearchResponse
 import com.naengjjambbong.hankangmoa.Network.Get.Response.GetMongDDangResponse
-import com.naengjjambbong.hankangmoa.Network.Get.Response.GetMongDDangRowData
+import com.naengjjambbong.hankangmoa.Network.Get.RowData.GetCampingRowData
+import com.naengjjambbong.hankangmoa.Network.Get.RowData.GetMongDDangRowData
 import com.naengjjambbong.hankangmoa.Network.RestApplicationController
 import com.naengjjambbong.hankangmoa.Network.RestNetworkService
 import com.naengjjambbong.hankangmoa.Network.SeoulApiController
@@ -41,9 +44,16 @@ class HomeDetailFragment : Fragment(), MainActivity.OnBackPressedListener, View.
 
     lateinit var seoulNetworkService : SeoulNetworkService
     lateinit var restNetworkService : RestNetworkService
+
+    var categoryNumber : Int = 0
+    // 한강몽땅 데이터
     lateinit var mongDDangRow : GetMongDDangMesssage
     lateinit var mongDDangData : ArrayList<GetMongDDangRowData>
-    var pageNo : Int = 0
+
+    // 캠핑장 데이터
+    lateinit var campingRow : GetCampingMessage
+    lateinit var campingData : ArrayList<GetCampingRowData>
+
     var timeFlag : Int = 0
 
     var checkFlag : Int = 0
@@ -64,6 +74,9 @@ class HomeDetailFragment : Fragment(), MainActivity.OnBackPressedListener, View.
     var mongDDangProceedingItem = ArrayList<MongDDangItem>()
     var mongDDangScheduledItem = ArrayList<MongDDangItem>()
     var mongDDangCompletedItem = ArrayList<MongDDangItem>()
+
+    var campingProceedingItem = ArrayList<MongDDangItem>()
+    var campingCompletedItem = ArrayList<MongDDangItem>()
 
     lateinit var homeDetailAdapter : HomeDetailAdapter
     lateinit var requestManager: RequestManager
@@ -101,6 +114,8 @@ class HomeDetailFragment : Fragment(), MainActivity.OnBackPressedListener, View.
         mongDDangData = ArrayList()
         mongDDangItem = ArrayList()
 
+        categoryNumber=7
+
         val category_list = arrayOf("문화/전시", "음악/콘서트", "캠핑", "스포츠", "꽃놀이", "체험", "물놀이", "기타")
         val sort_list = arrayOf("최신순", "인기순")
 
@@ -129,11 +144,14 @@ class HomeDetailFragment : Fragment(), MainActivity.OnBackPressedListener, View.
         categorySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 if (position == 0) {
-
+                    categoryNumber = 7
+                    Log.v("asdf", "문화/전시 호출")
                 } else if (position == 1) {
 
                 } else if (position == 2) {
-
+                    categoryNumber =2
+                    Log.v("Asdf", "캠핑장 호출")
+                    getCampingList(v)
                 } else if (position == 3) {
 
                 } else if (position == 4) {
@@ -182,15 +200,21 @@ class HomeDetailFragment : Fragment(), MainActivity.OnBackPressedListener, View.
             v.home_detail_completed_btn.isSelected = false
             v.home_detail_completed_btn.setTextColor(Color.parseColor("#000000"))
             //getHomeDetailList(v)
-            while(checkFlag == 0){
-                Log.v("asdf","리스트 받아오는중")
-
+            if(categoryNumber == 2){
+                Log.v("asdf","캠핑장 리스트 다 받아옴")
+                homeDetailAdapter = HomeDetailAdapter(context!!, campingProceedingItem, requestManager)
+                homeDetailAdapter.setOnItemClickListener(this@HomeDetailFragment)
+                v.home_detail_recyclerview.layoutManager = LinearLayoutManager(v.context)
+                v.home_detail_recyclerview.adapter = homeDetailAdapter
             }
-            Log.v("asdf","리스트 다 받아옴")
-            homeDetailAdapter = HomeDetailAdapter(context!!, mongDDangProceedingItem, requestManager)
-            homeDetailAdapter.setOnItemClickListener(this@HomeDetailFragment)
-            v.home_detail_recyclerview.layoutManager = LinearLayoutManager(v.context)
-            v.home_detail_recyclerview.adapter = homeDetailAdapter
+
+            if(categoryNumber == 7){
+                Log.v("asdf","리스트 다 받아옴")
+                homeDetailAdapter = HomeDetailAdapter(context!!, mongDDangProceedingItem, requestManager)
+                homeDetailAdapter.setOnItemClickListener(this@HomeDetailFragment)
+                v.home_detail_recyclerview.layoutManager = LinearLayoutManager(v.context)
+                v.home_detail_recyclerview.adapter = homeDetailAdapter
+            }
 
         }
 
@@ -203,16 +227,20 @@ class HomeDetailFragment : Fragment(), MainActivity.OnBackPressedListener, View.
             v.home_detail_completed_btn.isSelected = false
             v.home_detail_completed_btn.setTextColor(Color.parseColor("#000000"))
             //getHomeDetailList(v)
-            while(checkFlag == 0){
-                Log.v("asdf","리스트 받아오는중")
-
+            if(categoryNumber == 2){
+                Log.v("asdf","캠핑장 리스트 다 받아옴")
+                homeDetailAdapter = HomeDetailAdapter(context!!, campingProceedingItem, requestManager)
+                homeDetailAdapter.setOnItemClickListener(this@HomeDetailFragment)
+                v.home_detail_recyclerview.layoutManager = LinearLayoutManager(v.context)
+                v.home_detail_recyclerview.adapter = homeDetailAdapter
             }
-            Log.v("asdf","리스트 다 받아옴")
-            homeDetailAdapter = HomeDetailAdapter(context!!, mongDDangScheduledItem, requestManager)
-            homeDetailAdapter.setOnItemClickListener(this@HomeDetailFragment)
-            v.home_detail_recyclerview.layoutManager = LinearLayoutManager(v.context)
-            v.home_detail_recyclerview.adapter = homeDetailAdapter
-
+            if(categoryNumber == 7) {
+                Log.v("asdf","리스트 다 받아옴")
+                homeDetailAdapter = HomeDetailAdapter(context!!, mongDDangScheduledItem, requestManager)
+                homeDetailAdapter.setOnItemClickListener(this@HomeDetailFragment)
+                v.home_detail_recyclerview.layoutManager = LinearLayoutManager(v.context)
+                v.home_detail_recyclerview.adapter = homeDetailAdapter
+            }
 
             //getMongDDangList(v)
         }
@@ -227,15 +255,20 @@ class HomeDetailFragment : Fragment(), MainActivity.OnBackPressedListener, View.
             v.home_detail_scheduled_btn.isSelected = false
             v.home_detail_scheduled_btn.setTextColor(Color.parseColor("#000000"))
             //getHomeDetailList(v)
-            while(checkFlag == 0){
-                Log.v("asdf","리스트 받아오는중")
-
+            if(categoryNumber == 2){
+                Log.v("asdf","캠핑장 리스트 다 받아옴")
+                homeDetailAdapter = HomeDetailAdapter(context!!, campingCompletedItem, requestManager)
+                homeDetailAdapter.setOnItemClickListener(this@HomeDetailFragment)
+                v.home_detail_recyclerview.layoutManager = LinearLayoutManager(v.context)
+                v.home_detail_recyclerview.adapter = homeDetailAdapter
             }
-            Log.v("asdf","리스트 다 받아옴")
-            homeDetailAdapter = HomeDetailAdapter(context!!, mongDDangCompletedItem, requestManager)
-            homeDetailAdapter.setOnItemClickListener(this@HomeDetailFragment)
-            v.home_detail_recyclerview.layoutManager = LinearLayoutManager(v.context)
-            v.home_detail_recyclerview.adapter = homeDetailAdapter
+            if(categoryNumber == 7){
+                Log.v("asdf","리스트 다 받아옴")
+                homeDetailAdapter = HomeDetailAdapter(context!!, mongDDangCompletedItem, requestManager)
+                homeDetailAdapter.setOnItemClickListener(this@HomeDetailFragment)
+                v.home_detail_recyclerview.layoutManager = LinearLayoutManager(v.context)
+                v.home_detail_recyclerview.adapter = homeDetailAdapter
+            }
 
         }
 
@@ -299,7 +332,7 @@ class HomeDetailFragment : Fragment(), MainActivity.OnBackPressedListener, View.
 
         var key : String = "66556959457770613830475572716d"
 
-        pageNo = 1
+        var pageNo = 1
         try {
             seoulNetworkService = SeoulApiController.getRetrofit().create(SeoulNetworkService::class.java)
             var getMonDDangResponse = seoulNetworkService.getMongDDangList(key, pageNo) // 네트워크 서비스의 getContent 함수를 받아옴
@@ -333,116 +366,208 @@ class HomeDetailFragment : Fragment(), MainActivity.OnBackPressedListener, View.
 
     }
 
-    fun imageSearch(v : View)
+    fun imageSearch(v : View, categoryNumber : Int, timeNumber : Int)
     {
         restNetworkService = RestApplicationController.getRetrofit().create(RestNetworkService::class.java)
-        if(timeFlag == -1) {
+        if(categoryNumber == 2){
+            Log.v("ASdf", "캠핑장 이미지 데이터 가져오기 시작")
+            if(timeNumber == -1){
+                for (i in 0..campingCompletedItem.size-1) {
+                    Log.v("TAG", "캠핑장 이미지 검색 통신 시작 전 = " + i)
 
-            Log.v("asdf", "이미 완료됨")
-            for (i in 0..mongDDangCompletedItem.size-1) {
-                Log.v("TAG", "이미지 검색 통신 시작 전 = " + i)
-                var getImageSearchResponse = restNetworkService.getImageSearch("KakaoAK 298be2e3612229355b9d2e28bb10912e", mongDDangCompletedItem[i].homeDetailActivityName!!)
-                getImageSearchResponse.enqueue(object : Callback<GetImageSearchResponse> {
-                    override fun onResponse(call: Call<GetImageSearchResponse>?, response: Response<GetImageSearchResponse>?) {
-                        Log.v("TAG", "이미지 검색 통신 시작")
-                        if (response!!.isSuccessful) {
+                    var getImageSearchResponse = restNetworkService.getImageSearch("KakaoAK 298be2e3612229355b9d2e28bb10912e", campingCompletedItem[i].homeDetailActivityName!!)
 
-                            Log.v("TAG", "이미지 검색 통신 성공")
+                    getImageSearchResponse.enqueue(object : Callback<GetImageSearchResponse> {
+                        override fun onResponse(call: Call<GetImageSearchResponse>?, response: Response<GetImageSearchResponse>?) {
+                            Log.v("TAG", "캠핑장 이미지 검색 통신 시작")
+                            if (response!!.isSuccessful) {
 
-                            if (response!!.body()!!.documents!!.size == 0) {
-                                mongDDangCompletedItem[i].homeDetailActivityImgUrl = "https://2.bp.blogspot.com/-a7VX4tT-g4k/WdEZ8eaDrWI/AAAAAAAC-mA/O5cw44tb1TMA7gJzhvnX8b1ObO0y80-tACLcBGAs/s1600/%25ED%2595%259C%25EA%25B0%2595%2B%25EA%25B8%25B8%25EC%259D%25B4.jpg"
+                                Log.v("TAG", "캠핑장 이미지 검색 통신 성공")
+
+                                if (response!!.body()!!.documents!!.size == 0) {
+                                    campingCompletedItem[i].homeDetailActivityImgUrl = "https://2.bp.blogspot.com/-a7VX4tT-g4k/WdEZ8eaDrWI/AAAAAAAC-mA/O5cw44tb1TMA7gJzhvnX8b1ObO0y80-tACLcBGAs/s1600/%25ED%2595%259C%25EA%25B0%2595%2B%25EA%25B8%25B8%25EC%259D%25B4.jpg"
+                                } else {
+                                    campingCompletedItem[i].homeDetailActivityImgUrl = response!!.body()!!.documents[0].image_url!!
+                                }
+
+                                if(i==campingCompletedItem.size-1) {
+
+                                    if(context == null)
+                                    {
+                                        Log.v("Asdf","context is null")
+                                    }
+                                    else{
+                                        homeDetailAdapter = HomeDetailAdapter(context!!, campingCompletedItem, requestManager)
+                                        homeDetailAdapter!!.setOnItemClickListener(this@HomeDetailFragment)
+                                        v.home_detail_recyclerview.layoutManager = LinearLayoutManager(v.context)
+                                        v.home_detail_recyclerview.adapter = homeDetailAdapter
+                                    }
+
+                                }
+
                             } else {
-                                mongDDangCompletedItem[i].homeDetailActivityImgUrl = response!!.body()!!.documents[0].image_url!!
+                                Log.v("TAG", "이미지 검색 값 가져오기 실패")
                             }
-
-                            if (i == 9) {
-                                checkFlag = 1
-                            }
-
-
-                        } else {
-                            Log.v("TAG", "이미지 검색 값 가져오기 실패")
                         }
-                    }
 
-                    override fun onFailure(call: Call<GetImageSearchResponse>?, t: Throwable?) {
-                        Log.v("TAG", "이미지 서버 통신 실패" + t.toString())
-                    }
+                        override fun onFailure(call: Call<GetImageSearchResponse>?, t: Throwable?) {
+                            Log.v("TAG", "이미지 서버 통신 실패" + t.toString())
+                        }
 
-                })
+                    })
+                }
+            }
+            else if(timeNumber == 0){
+                for (i in 0..campingProceedingItem.size-1) {
+                    Log.v("TAG", "캠핑장 이미지 검색 통신 시작 전 = " + i)
+
+                    var getImageSearchResponse = restNetworkService.getImageSearch("KakaoAK 298be2e3612229355b9d2e28bb10912e", campingProceedingItem[i].homeDetailActivityName!!)
+
+                    getImageSearchResponse.enqueue(object : Callback<GetImageSearchResponse> {
+                        override fun onResponse(call: Call<GetImageSearchResponse>?, response: Response<GetImageSearchResponse>?) {
+                            Log.v("TAG", "캠핑장 이미지 검색 통신 시작")
+                            if (response!!.isSuccessful) {
+
+                                Log.v("TAG", "캠핑장 이미지 검색 통신 성공")
+
+                                if (response!!.body()!!.documents!!.size == 0) {
+                                    campingProceedingItem[i].homeDetailActivityImgUrl = "https://2.bp.blogspot.com/-a7VX4tT-g4k/WdEZ8eaDrWI/AAAAAAAC-mA/O5cw44tb1TMA7gJzhvnX8b1ObO0y80-tACLcBGAs/s1600/%25ED%2595%259C%25EA%25B0%2595%2B%25EA%25B8%25B8%25EC%259D%25B4.jpg"
+                                } else {
+                                    campingProceedingItem[i].homeDetailActivityImgUrl = response!!.body()!!.documents[0].image_url!!
+                                }
+
+                                if(i==campingProceedingItem.size-1) {
+
+                                    if(context == null)
+                                    {
+                                        Log.v("Asdf","context is null")
+                                    }
+                                    else{
+                                        homeDetailAdapter = HomeDetailAdapter(context!!, campingProceedingItem, requestManager)
+                                        homeDetailAdapter!!.setOnItemClickListener(this@HomeDetailFragment)
+                                        v.home_detail_recyclerview.layoutManager = LinearLayoutManager(v.context)
+                                        v.home_detail_recyclerview.adapter = homeDetailAdapter
+                                    }
+
+                                }
+
+                            } else {
+                                Log.v("TAG", "이미지 검색 값 가져오기 실패")
+                            }
+                        }
+
+                        override fun onFailure(call: Call<GetImageSearchResponse>?, t: Throwable?) {
+                            Log.v("TAG", "이미지 서버 통신 실패" + t.toString())
+                        }
+
+                    })
+                }
+            }
+            else if(timeNumber == 1){
+
             }
 
         }
-        else if(timeFlag == 0){
-            Log.v("asdf", "이미 진행중")
+        if(categoryNumber == 7){
+            if(timeFlag == -1) {
+                Log.v("asdf", "이미 완료됨")
+                for (i in 0..mongDDangCompletedItem.size-1) {
+                    Log.v("TAG", "이미지 검색 통신 시작 전 = " + i)
+                    var getImageSearchResponse = restNetworkService.getImageSearch("KakaoAK 298be2e3612229355b9d2e28bb10912e", mongDDangCompletedItem[i].homeDetailActivityName!!)
+                    getImageSearchResponse.enqueue(object : Callback<GetImageSearchResponse> {
+                        override fun onResponse(call: Call<GetImageSearchResponse>?, response: Response<GetImageSearchResponse>?) {
+                            Log.v("TAG", "이미지 검색 통신 시작")
+                            if (response!!.isSuccessful) {
 
-            for(i in 0..mongDDangProceedingItem.size-1) {
-                Log.v("TAG","이미지 검색 통신 시작 전")
-                var getImageSearchResponse = restNetworkService.getImageSearch("KakaoAK 298be2e3612229355b9d2e28bb10912e", mongDDangProceedingItem[i].homeDetailActivityName!!)
-                getImageSearchResponse.enqueue(object : Callback<GetImageSearchResponse> {
-                    override fun onResponse(call: Call<GetImageSearchResponse>?, response: Response<GetImageSearchResponse>?) {
-                        Log.v("TAG","이미지 검색 통신 시작")
-                        if(response!!.isSuccessful)
-                        {
-                            Log.v("TAG","이미지 검색 통신 성공")
+                                Log.v("TAG", "이미지 검색 통신 성공")
 
-                            if(response!!.body()!!.documents!!.size == 0) {
-                                mongDDangProceedingItem[i].homeDetailActivityImgUrl = "https://2.bp.blogspot.com/-a7VX4tT-g4k/WdEZ8eaDrWI/AAAAAAAC-mA/O5cw44tb1TMA7gJzhvnX8b1ObO0y80-tACLcBGAs/s1600/%25ED%2595%259C%25EA%25B0%2595%2B%25EA%25B8%25B8%25EC%259D%25B4.jpg"
+                                if (response!!.body()!!.documents!!.size == 0) {
+                                    mongDDangCompletedItem[i].homeDetailActivityImgUrl = "https://2.bp.blogspot.com/-a7VX4tT-g4k/WdEZ8eaDrWI/AAAAAAAC-mA/O5cw44tb1TMA7gJzhvnX8b1ObO0y80-tACLcBGAs/s1600/%25ED%2595%259C%25EA%25B0%2595%2B%25EA%25B8%25B8%25EC%259D%25B4.jpg"
+                                } else {
+                                    mongDDangCompletedItem[i].homeDetailActivityImgUrl = response!!.body()!!.documents[0].image_url!!
+                                }
+
+                            } else {
+                                Log.v("TAG", "이미지 검색 값 가져오기 실패")
                             }
-                            else{
-                                mongDDangProceedingItem[i].homeDetailActivityImgUrl = response!!.body()!!.documents[0].image_url!!
-                            }
+                        }
 
+                        override fun onFailure(call: Call<GetImageSearchResponse>?, t: Throwable?) {
+                            Log.v("TAG", "이미지 서버 통신 실패" + t.toString())
                         }
-                        else
-                        {
-                            Log.v("TAG","이미지 검색 값 가져오기 실패")
+
+                    })
+                }
+
+            }
+            else if(timeFlag == 0){
+                Log.v("asdf", "이미 진행중")
+
+                for(i in 0..mongDDangProceedingItem.size-1) {
+                    Log.v("TAG","이미지 검색 통신 시작 전")
+                    var getImageSearchResponse = restNetworkService.getImageSearch("KakaoAK 298be2e3612229355b9d2e28bb10912e", mongDDangProceedingItem[i].homeDetailActivityName!!)
+                    getImageSearchResponse.enqueue(object : Callback<GetImageSearchResponse> {
+                        override fun onResponse(call: Call<GetImageSearchResponse>?, response: Response<GetImageSearchResponse>?) {
+                            Log.v("TAG","이미지 검색 통신 시작")
+                            if(response!!.isSuccessful)
+                            {
+                                Log.v("TAG","이미지 검색 통신 성공")
+
+                                if(response!!.body()!!.documents!!.size == 0) {
+                                    mongDDangProceedingItem[i].homeDetailActivityImgUrl = "https://2.bp.blogspot.com/-a7VX4tT-g4k/WdEZ8eaDrWI/AAAAAAAC-mA/O5cw44tb1TMA7gJzhvnX8b1ObO0y80-tACLcBGAs/s1600/%25ED%2595%259C%25EA%25B0%2595%2B%25EA%25B8%25B8%25EC%259D%25B4.jpg"
+                                }
+                                else{
+                                    mongDDangProceedingItem[i].homeDetailActivityImgUrl = response!!.body()!!.documents[0].image_url!!
+                                }
+                            }
+                            else
+                            {
+                                Log.v("TAG","이미지 검색 값 가져오기 실패")
+                            }
                         }
-                    }
-                    override fun onFailure(call: Call<GetImageSearchResponse>?, t: Throwable?) {
-                        Log.v("TAG","이미지 서버 통신 실패"+t.toString())
-                    }
-                })
+                        override fun onFailure(call: Call<GetImageSearchResponse>?, t: Throwable?) {
+                            Log.v("TAG","이미지 서버 통신 실패"+t.toString())
+                        }
+                    })
+                }
+
+            }
+            else if(timeFlag == 1){
+                Log.v("asdf", "이미 예정중")
+
+                for(i in 0..mongDDangScheduledItem.size-1) {
+                    Log.v("TAG","이미지 검색 통신 시작 전")
+                    var getImageSearchResponse = restNetworkService.getImageSearch("KakaoAK 298be2e3612229355b9d2e28bb10912e", mongDDangScheduledItem[i].homeDetailActivityName!!)
+                    getImageSearchResponse.enqueue(object : Callback<GetImageSearchResponse> {
+                        override fun onResponse(call: Call<GetImageSearchResponse>?, response: Response<GetImageSearchResponse>?) {
+                            Log.v("TAG","이미지 검색 통신 시작")
+                            if(response!!.isSuccessful)
+                            {
+                                Log.v("TAG","이미지 검색 통신 성공")
+
+                                if(response!!.body()!!.documents!!.size == 0) {
+                                    mongDDangScheduledItem[i].homeDetailActivityImgUrl = "https://2.bp.blogspot.com/-a7VX4tT-g4k/WdEZ8eaDrWI/AAAAAAAC-mA/O5cw44tb1TMA7gJzhvnX8b1ObO0y80-tACLcBGAs/s1600/%25ED%2595%259C%25EA%25B0%2595%2B%25EA%25B8%25B8%25EC%259D%25B4.jpg"
+                                }
+                                else{
+                                    mongDDangScheduledItem[i].homeDetailActivityImgUrl = response!!.body()!!.documents[0].image_url!!
+                                }
+
+                            }
+                            else
+                            {
+                                Log.v("TAG","이미지 검색 값 가져오기 실패")
+                            }
+                        }
+                        override fun onFailure(call: Call<GetImageSearchResponse>?, t: Throwable?) {
+                            Log.v("TAG","이미지 서버 통신 실패"+t.toString())
+                        }
+                    })
+                }
             }
 
         }
-        else if(timeFlag == 1){
-            Log.v("asdf", "이미 예정중")
-
-            for(i in 0..mongDDangScheduledItem.size-1) {
-                Log.v("TAG","이미지 검색 통신 시작 전")
-                var getImageSearchResponse = restNetworkService.getImageSearch("KakaoAK 298be2e3612229355b9d2e28bb10912e", mongDDangScheduledItem[i].homeDetailActivityName!!)
-                getImageSearchResponse.enqueue(object : Callback<GetImageSearchResponse> {
-                    override fun onResponse(call: Call<GetImageSearchResponse>?, response: Response<GetImageSearchResponse>?) {
-                        Log.v("TAG","이미지 검색 통신 시작")
-                        if(response!!.isSuccessful)
-                        {
-                            Log.v("TAG","이미지 검색 통신 성공")
-
-                            if(response!!.body()!!.documents!!.size == 0) {
-                                mongDDangScheduledItem[i].homeDetailActivityImgUrl = "https://2.bp.blogspot.com/-a7VX4tT-g4k/WdEZ8eaDrWI/AAAAAAAC-mA/O5cw44tb1TMA7gJzhvnX8b1ObO0y80-tACLcBGAs/s1600/%25ED%2595%259C%25EA%25B0%2595%2B%25EA%25B8%25B8%25EC%259D%25B4.jpg"
-                            }
-                            else{
-                                mongDDangScheduledItem[i].homeDetailActivityImgUrl = response!!.body()!!.documents[0].image_url!!
-                            }
-
-                        }
-                        else
-                        {
-                            Log.v("TAG","이미지 검색 값 가져오기 실패")
-                        }
-                    }
-                    override fun onFailure(call: Call<GetImageSearchResponse>?, t: Throwable?) {
-                        Log.v("TAG","이미지 서버 통신 실패"+t.toString())
-                    }
-                })
-            }
-
-
-        }
-
-
     }
+
 
     fun Check(currentDate : Date, selectedStartDate : Date, selectedFinishDate : Date) : Int{
         val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd")
@@ -484,9 +609,6 @@ class HomeDetailFragment : Fragment(), MainActivity.OnBackPressedListener, View.
         for (i in 0..mongDDangData.size - 1) {
 
             Log.v("er", "한강 몽땅 데이터[" + i + "]번째 값 = " + mongDDangData[i].COT_VALUE_02)
-
-
-
 
             //selectedDay = mongDDangData[i].COT_VALUE_02!!.replace("(월)", "").replace("(화)", "").replace("(수)","").replace("(목)","").replace("(금)","").replace("(토)","").replace("(일)","").replace("월",".").replace("일","").replace(" ","")
             selectedDay = mongDDangData[i].COT_VALUE_02!!.replace("[^0-9,.,~,/]".toRegex(), "")
@@ -628,15 +750,9 @@ class HomeDetailFragment : Fragment(), MainActivity.OnBackPressedListener, View.
                     finishDate = "2018-" + finishMonth + "-" + finishDay
                     Log.v("asdf", "최종 시작 일 = " + startDate.replace("00", "0"))
                     Log.v("asdf", "최종 마지막 일 = " + finishDate.replace("00", "0"))
-
                 }
 
-
             }
-
-
-            //startMonth = selectedDay.substring(selectedDay.indexOf("."))
-
 
             if(dateFlag ==1 ){
                 var translateStartDate = SimpleDateFormat("yyyy-MM-dd").parse(startDate)
@@ -669,15 +785,63 @@ class HomeDetailFragment : Fragment(), MainActivity.OnBackPressedListener, View.
             }
         }
         if(timeFlag == -1){
-            imageSearch(v)
+            imageSearch(v,categoryNumber, -1)
         }
         else if(timeFlag == 0){
-            imageSearch(v)
+            imageSearch(v,categoryNumber, 0)
         }
         else if(timeFlag == 1){
-            imageSearch(v)
+            imageSearch(v,categoryNumber,1)
         }
 
+
+    }
+
+    private fun getCampingList(v : View) {
+
+        var key : String = "4d43676e45777061313130726e6a414d"
+
+        var pageNo = 14
+        try {
+            seoulNetworkService = SeoulApiController.getRetrofit().create(SeoulNetworkService::class.java)
+            var getCampingResponse = seoulNetworkService.getCampingList(key, pageNo) // 네트워크 서비스의 getContent 함수를 받아옴
+            Log.v("TAG","서울시 캠핑장 데이터 GET 통신 시작 전")
+            getCampingResponse.enqueue(object : Callback<GetCampingResponse> {
+                override fun onResponse(call: Call<GetCampingResponse>?, response: Response<GetCampingResponse>?) {
+                    if(response!!.isSuccessful) {
+                        Log.v("TAG","서울시 캠핑장 데이터 GET 통신 성공")
+                        campingRow = response!!.body()!!.SebcCampingInfoKor
+
+                        campingData = campingRow!!.row
+                        if(campingRow!!.row.size == 0)
+                        {
+                            Log.v("TAG","서울시 캠핑장 데이터 값 없음.")
+                        }
+                        else
+                        {
+                            for(i in 0..campingData.size-1) {
+                                Log.v("asdf", "캠핑장 데이터 [" + i + "] = " + campingData[i].NAME_KOR)
+                                if(campingData[i].OPER_HOUR == ""){
+                                    campingProceedingItem.add(MongDDangItem(campingData[i].NAME_KOR, campingData[i].OPER_HOUR, "null"))
+                                    imageSearch(v, 2, 0)
+                                }
+                                else{
+                                    campingCompletedItem.add(MongDDangItem(campingData[i].NAME_KOR, campingData[i].OPER_HOUR, "null"))
+                                    imageSearch(v, 2, -1)
+                                }
+                            }
+
+
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<GetCampingResponse>?, t: Throwable?) {
+                    Log.v("TAG","서울시 캠핑장 데이터 통신 실패" + t.toString())
+                }
+            })
+        } catch (e: Exception) {
+        }
 
     }
 }
