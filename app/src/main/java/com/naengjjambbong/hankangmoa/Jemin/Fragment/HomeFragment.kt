@@ -201,8 +201,6 @@ class HomeFragment : Fragment(), View.OnClickListener{
     }
 
     private fun getWeahterData(v : View) {
-
-
         try {
             skPlanetNetworkService = SKPlanetApiController.getRetrofit().create(SKPlanetNetworkService::class.java)
             var getWeatherResponse = skPlanetNetworkService.getWeatherData("0ea95da3-7458-424f-b85c-fa3bef586a6a", "2", "37.5267449", "127.07869359999995", "", "", "", "") // 네트워크 서비스의 getContent 함수를 받아옴
