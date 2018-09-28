@@ -91,7 +91,7 @@
             android:textSize="14sp" />
 
         <ImageView
-            android:id="@+id/review_picture_img"
+            android:id="@+id/item_review_picture_img"
             android:layout_width="275dp"
             android:layout_height="140dp"
             android:layout_marginStart="60dp"

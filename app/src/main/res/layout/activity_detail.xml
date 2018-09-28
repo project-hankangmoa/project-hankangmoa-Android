@@ -272,7 +272,7 @@
 
 
             <ImageView
-                android:id="@+id/btn_heart"
+                android:id="@+id/detail_heart_btn"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_alignEnd="@+id/layout_festival_summary"

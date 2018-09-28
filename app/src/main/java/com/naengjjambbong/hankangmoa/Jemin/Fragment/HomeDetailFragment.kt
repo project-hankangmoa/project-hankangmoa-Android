@@ -31,8 +31,6 @@ import com.naengjjambbong.hankangmoa.Network.Get.Response.GetCampingResponse
 import com.naengjjambbong.hankangmoa.Network.Get.Response.GetImageSearchResponse
 import com.naengjjambbong.hankangmoa.Network.Get.Response.GetMongDDangResponse
 import com.naengjjambbong.hankangmoa.Network.Get.Response.GetPoolResponse
-import com.naengjjambbong.hankangmoa.Network.Get.RowData.GetCampingRowData
-import com.naengjjambbong.hankangmoa.Network.Get.RowData.GetMongDDangRowData
 import com.naengjjambbong.hankangmoa.Network.Get.RowData.GetPoolRowData
 import com.naengjjambbong.hankangmoa.Network.RestApplicationController
 import com.naengjjambbong.hankangmoa.Network.RestNetworkService
@@ -148,23 +146,19 @@ class HomeDetailFragment : Fragment(), MainActivity.OnBackPressedListener{
 
             }
         }
-
-
         //getMongDDangList(v)
         addFragment(ActivityTab())
-
 
         return v
     }
 
     // Fragment 호출 시 반드시 호출되는 오버라이드 메소드입니다.
-    //                     혹시 Context 로 안되시는분은 Activity 로 바꿔보시기 바랍니다.
+    // 혹시 Context 로 안되시는분은 Activity 로 바꿔보시기 바랍니다.
     override fun onAttach(context: Context) {
         super.onAttach(context)
         Log.e("Other", "onAttach()")
         (context as MainActivity).setOnBackPressedListener(this)
     }
-
 
     fun addFragment(fragment : Fragment){
         val fm = childFragmentManager

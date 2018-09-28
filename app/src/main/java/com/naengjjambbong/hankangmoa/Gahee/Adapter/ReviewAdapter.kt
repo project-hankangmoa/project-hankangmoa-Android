@@ -21,7 +21,6 @@ class ReviewAdapter(private var reviewitems : ArrayList<ReviewItem>, var request
     override fun getItemCount(): Int = reviewitems.size
 
     override fun onBindViewHolder(holder: ReviewViewHolder, position: Int) {
-        holder.reviewEventName.text=reviewitems[position].eventname
         requestManager.load(reviewitems[position].profileURL).into(holder.reviewProfileImage)
         holder.reviewName.text = reviewitems[position].userid
         holder.reviewDetail.text = reviewitems[position].review

@@ -12,11 +12,11 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.naengjjambbong.hankangmoa.Gahee.Activity.DetailActivity
 import com.naengjjambbong.hankangmoa.Jemin.Adapter.HomeDetailAdapter
+import com.naengjjambbong.hankangmoa.Jemin.Item.CampingItem
 import com.naengjjambbong.hankangmoa.Jemin.Item.MongDDangItem
 import com.naengjjambbong.hankangmoa.Network.Get.GetCampingMessage
 import com.naengjjambbong.hankangmoa.Network.Get.Response.GetCampingResponse
 import com.naengjjambbong.hankangmoa.Network.Get.Response.GetImageSearchResponse
-import com.naengjjambbong.hankangmoa.Network.Get.Response.GetPoolResponse
 import com.naengjjambbong.hankangmoa.Network.Get.RowData.GetCampingRowData
 import com.naengjjambbong.hankangmoa.Network.RestApplicationController
 import com.naengjjambbong.hankangmoa.Network.RestNetworkService
