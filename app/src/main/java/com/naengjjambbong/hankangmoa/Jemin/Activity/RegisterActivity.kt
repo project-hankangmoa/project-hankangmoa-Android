@@ -17,14 +17,21 @@ import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
+import com.naengjjambbong.hankangmoa.Network.ApplicationController
+import com.naengjjambbong.hankangmoa.Network.Item.PostRegister
+import com.naengjjambbong.hankangmoa.Network.NetworkService
+import com.naengjjambbong.hankangmoa.Network.Post.PostRegisterResponse
 import com.naengjjambbong.hankangmoa.R
 import com.naengjjambbong.hankangmoa.R.id.register_confirm_btn
 import kotlinx.android.synthetic.main.activity_register.*
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import retrofit2.Call
+import retrofit2.Response
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileNotFoundException
@@ -36,6 +43,11 @@ class RegisterActivity : AppCompatActivity() {
     lateinit var data : Uri
     private var image : MultipartBody.Part? = null
     lateinit var requestManager: RequestManager
+    lateinit var networkService : NetworkService
+
+    var email : String = ""
+    var pw : String = ""
+    var name : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,8 +66,8 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         register_confirm_btn.setOnClickListener {
-            var intent = Intent(applicationContext, LoginActivity::class.java)
-            startActivity(intent)
+            postRegister()
+
         }
 
         register_profile_img.setOnClickListener {
@@ -131,5 +143,34 @@ class RegisterActivity : AppCompatActivity() {
         } finally {
             cursor?.close()
         }
+    }
+
+    fun postRegister()
+    {
+        email = register_email_edit.text.toString()
+        name = register_name_edit.text.toString()
+        pw = register_passwd_edit.text.toString()
+
+        networkService = ApplicationController.getRetrofit().create(NetworkService::class.java)
+        var postRegister = PostRegister(email, pw, name)
+        var postRegisterResponse = networkService.postRegister(postRegister)
+        Log.v("TAG", "회원가입 생성 통신 전")
+        postRegisterResponse.enqueue(object : retrofit2.Callback<PostRegisterResponse>{
+
+            override fun onResponse(call: Call<PostRegisterResponse>, response: Response<PostRegisterResponse>) {
+                Log.v("TAG", "회원가입 생성 통신 성공")
+                if(response.isSuccessful){
+                    Log.v("TAG", "회원가입 성공")
+                    var intent = Intent(applicationContext, LoginActivity::class.java)
+                    startActivity(intent)
+                }
+            }
+
+            override fun onFailure(call: Call<PostRegisterResponse>, t: Throwable?) {
+                Toast.makeText(applicationContext,"회원가입 서버 연결 실패", Toast.LENGTH_SHORT).show()
+            }
+
+        })
+
     }
 }

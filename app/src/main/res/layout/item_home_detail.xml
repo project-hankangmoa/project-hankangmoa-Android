@@ -100,7 +100,7 @@
         android:id="@+id/item_home_detail_heart_img"
         android:layout_width="16.8dp"
         android:layout_height="15dp"
-        android:src="@drawable/btn_like_off"
+        android:src="@drawable/selector_heart_btn"
         android:layout_alignParentRight="true"
         android:layout_marginTop="12.2dp"
         android:layout_marginRight="12.2dp"
