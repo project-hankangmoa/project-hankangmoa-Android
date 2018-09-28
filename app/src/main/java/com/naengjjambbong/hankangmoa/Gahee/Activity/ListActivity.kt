@@ -8,6 +8,7 @@ import com.bumptech.glide.RequestManager
 import com.naengjjambbong.hankangmoa.Gahee.Adapter.ListAdapter
 import com.naengjjambbong.hankangmoa.Gahee.Item.ListItem
 import com.naengjjambbong.hankangmoa.R
+import com.naengjjambbong.hankangmoa.R.id.list_recyclerView
 import kotlinx.android.synthetic.main.activity_list.*
 
 

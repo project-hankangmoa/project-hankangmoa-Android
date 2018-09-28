@@ -34,7 +34,7 @@ class MainImageAdapter internal constructor(internal var context: Context, var r
     }
 
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
-        container!!.removeView(`object` as View?)
+        container.removeView(`object` as View?)
     }
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {

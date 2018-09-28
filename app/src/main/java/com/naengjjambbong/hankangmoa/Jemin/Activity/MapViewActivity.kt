@@ -9,7 +9,6 @@ import android.os.Bundle
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.view.View
-import com.naengjjambbong.hankangmoa.R
 import android.view.ViewGroup
 import net.daum.mf.map.api.MapView
 import android.util.Base64.NO_WRAP
@@ -19,6 +18,7 @@ import android.content.pm.PackageInfo
 import android.support.v4.app.FragmentActivity
 import android.util.Base64
 import android.util.Log
+import com.naengjjambbong.hankangmoa.R
 import net.daum.mf.map.api.MapPoint
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException

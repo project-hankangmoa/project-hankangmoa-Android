@@ -2,7 +2,6 @@ package com.naengjjambbong.hankangmoa.Jemin.Activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import com.naengjjambbong.hankangmoa.R
 
 import android.Manifest
 import android.content.Context
@@ -29,6 +28,7 @@ import android.provider.SyncStateContract.Helpers.update
 import android.content.pm.PackageInfo
 import android.util.Base64
 import com.naengjjambbong.hankangmoa.Gahee.Fragment.MypageFragment
+import com.naengjjambbong.hankangmoa.R
 import java.security.MessageDigest
 import java.security.NoSuchAlgorithmException
 
@@ -71,10 +71,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         mainActivity = this
 
         // 위젯에 대한 참조
-        bt_tab1 = findViewById(R.id.main_hometab_btn) as ImageButton
-        bt_tab2 = findViewById(R.id.main_map_btn) as ImageButton
-        bt_tab3 = findViewById(R.id.main_photo_btn) as ImageButton
-        bt_tab4 = findViewById(R.id.main_mypage_btn) as ImageButton
+        bt_tab1 = findViewById<ImageButton>(R.id.main_hometab_btn)
+        bt_tab2 = findViewById<ImageButton>(R.id.main_map_btn)
+        bt_tab3 = findViewById<ImageButton>(R.id.main_photo_btn)
+        bt_tab4 = findViewById<ImageButton>(R.id.main_mypage_btn)
 
         // 탭 버튼에 대한 리스너 연결
         bt_tab1!!.setOnClickListener(this)
@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         // 임의로 액티비티 호출 시점에 어느 프레그먼트를 프레임레이아웃에 띄울 것인지를 정함
         callFragment(FRAGMENT1)
 
-        main_hometab_btn.setSelected(true)
+        main_hometab_btn.isSelected = true
         //다음개발자 - 해시 키 출력하는 코드
         try {
             val info = packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES)
@@ -135,22 +135,22 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when (v.id) {
             R.id.main_hometab_btn -> {
 
-                main_hometab_btn.setSelected(true)
+                main_hometab_btn.isSelected = true
 
-                main_map_btn.setSelected(false)
-                main_photo_btn.setSelected(false)
-                main_mypage_btn.setSelected(false)
+                main_map_btn.isSelected = false
+                main_photo_btn.isSelected = false
+                main_mypage_btn.isSelected = false
                 // '홈 탭' 클릭 시 '홈 리스트 프래그먼트' 호출
                 callFragment(FRAGMENT1)
             }
 
 
             R.id.main_map_btn ->{
-                main_map_btn.setSelected(true)
+                main_map_btn.isSelected = true
 
-                main_hometab_btn.setSelected(false)
-                main_photo_btn.setSelected(false)
-                main_mypage_btn.setSelected(false)
+                main_hometab_btn.isSelected = false
+                main_photo_btn.isSelected = false
+                main_mypage_btn.isSelected = false
 
                 // '추천 탭' 클릭 시 '추천 프래그먼트' 호출
                 callFragment(FRAGMENT2)
@@ -160,20 +160,20 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             R.id.main_photo_btn ->{
                 //postAlarm()
 
-                main_photo_btn.setSelected(true)
-                main_map_btn.setSelected(false)
-                main_hometab_btn.setSelected(false)
-                main_mypage_btn.setSelected(false)
+                main_photo_btn.isSelected = true
+                main_map_btn.isSelected = false
+                main_hometab_btn.isSelected = false
+                main_mypage_btn.isSelected = false
                 // '알림 탭' 클릭 시 '알림 프래그먼트' 호출
                 callFragment(FRAGMENT3)
 
             }
             R.id.main_mypage_btn ->{
-                main_mypage_btn.setSelected(true)
+                main_mypage_btn.isSelected = true
 
-                main_map_btn.setSelected(false)
-                main_photo_btn.setSelected(false)
-                main_hometab_btn.setSelected(false)
+                main_map_btn.isSelected = false
+                main_photo_btn.isSelected = false
+                main_hometab_btn.isSelected = false
                 // '마이페이지 탭' 클릭 시 '마이페이지 프래그먼트' 호출
                 callFragment(FRAGMENT4)
             }

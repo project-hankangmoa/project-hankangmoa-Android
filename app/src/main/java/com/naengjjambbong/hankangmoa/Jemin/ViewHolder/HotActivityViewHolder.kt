@@ -6,9 +6,8 @@ import android.view.animation.Animation
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.naengjjambbong.hankangmoa.R
 import android.view.animation.AnimationUtils
-
+import com.naengjjambbong.hankangmoa.R
 
 
 class HotActivityViewHolder(itemView : View?) : RecyclerView.ViewHolder(itemView) {

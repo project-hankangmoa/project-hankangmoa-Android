@@ -12,8 +12,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="165dp"
             android:layout_marginTop="12dp"
+            android:layout_centerHorizontal="true"
             android:text="리뷰"
             android:textColor="#ffffff"
             android:textSize="17sp" />
@@ -36,7 +36,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="145dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="31dp"
             android:text="리뷰 작성하기"
             android:textColor="#7a7a7a"

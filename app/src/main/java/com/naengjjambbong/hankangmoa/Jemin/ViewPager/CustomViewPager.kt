@@ -9,7 +9,7 @@ class CustomViewPager(mContext : Context, attrs : AttributeSet? = null) : ViewPa
 
     override fun setAdapter(adapter: PagerAdapter?) {
         super.setAdapter(adapter)
-        setCurrentItem(Integer.MAX_VALUE / 2)
+        currentItem = Integer.MAX_VALUE / 2
     }
 
     override fun setCurrentItem(item: Int) {

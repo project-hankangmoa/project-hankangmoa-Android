@@ -15,7 +15,7 @@ class ReviewViewHolder (itemView: View?) : RecyclerView.ViewHolder(itemView){
     var reviewProfileImage: ImageView = itemView!!.findViewById(R.id.item_review_profile_img)
     var reviewName : TextView = itemView!!.findViewById(R.id.item_review_user_id_tv)
     var reviewDetail : TextView = itemView!!.findViewById(R.id.item_review_tv)
-    var reviewImage : ImageView = itemView!!.findViewById(R.id.review_picture_img)
+    var reviewImage : ImageView = itemView!!.findViewById(R.id.item_review_picture_img)
     var reviewDate : TextView = itemView!!.findViewById(R.id.item_review_date_tv)
 
 

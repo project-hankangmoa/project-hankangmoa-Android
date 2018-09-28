@@ -94,6 +94,7 @@ class ActivityTab : Fragment(), View.OnClickListener{
             v.tab_activity_recyclerview.layoutManager = LinearLayoutManager(v.context)
             v.tab_activity_recyclerview.adapter = homeDetailAdapter
         }
+
         v.activity_proceeding_btn.setOnClickListener {
             v.activity_proceeding_btn.isSelected = true
             v.activity_proceeding_btn.setTextColor(Color.parseColor("#ffffff"))

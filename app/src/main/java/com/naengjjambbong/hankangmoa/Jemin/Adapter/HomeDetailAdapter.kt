@@ -41,7 +41,7 @@ class HomeDetailAdapter(context : Context, private var homeDetailItem : ArrayLis
         requestManager.load(homeDetailItem[position].homeDetailActivityImgUrl).into(holder.homeDetailActivityImage)
         //requestManager.load(hotActivityItem[position].HotActivityImageUrl).error(R.drawable.btn_heart).into(holder.hotActivityImage)
 
-        val drawable = mContext!!.getDrawable(R.drawable.background_rounding) as GradientDrawable
+        val drawable = mContext.getDrawable(R.drawable.background_rounding) as GradientDrawable
 
         holder.homeDetailActivityImage.background = drawable
         holder.homeDetailActivityImage.clipToOutline = true

@@ -10,12 +10,12 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.naengjjambbong.hankangmoa.Jemin.Item.MainListItem
-import com.naengjjambbong.hankangmoa.R
 import kotlinx.android.synthetic.main.view_pager_main_list.view.*
 import android.graphics.drawable.GradientDrawable
 import android.os.Build
 import android.support.annotation.RequiresApi
 import com.naengjjambbong.hankangmoa.Gahee.Activity.DetailActivity
+import com.naengjjambbong.hankangmoa.R
 
 
 class MainListContentAdapter internal constructor(internal var context: Context, var mainListItem : ArrayList<MainListItem>, var requestManager : RequestManager) : PagerAdapter(), View.OnClickListener {
@@ -45,7 +45,7 @@ class MainListContentAdapter internal constructor(internal var context: Context,
         Log.v("TASDF","현재 포지션 =  " + position)
         Log.v("TASDF","현재 포지션 =  " + mainListItem)
         //requestManager.load(countries[position].mainListImg).into(view.view_pager_main_img)
-        val drawable = context!!.getDrawable(R.drawable.background_rounding) as GradientDrawable
+        val drawable = context.getDrawable(R.drawable.background_rounding) as GradientDrawable
 
         view.view_pager_main_img.background = drawable
         view.view_pager_main_img.clipToOutline = true

@@ -20,6 +20,7 @@ import android.view.View
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.naengjjambbong.hankangmoa.R
+import com.naengjjambbong.hankangmoa.R.id.register_confirm_btn
 import kotlinx.android.synthetic.main.activity_register.*
 import okhttp3.MediaType
 import okhttp3.MultipartBody
