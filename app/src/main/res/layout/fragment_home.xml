@@ -46,41 +46,50 @@
                 android:layout_width="0.5dp"
                 android:layout_height="48dp"
                 android:layout_toRightOf="@+id/home_today_hankang_content_tv"
-                android:layout_marginLeft="78.5dp"
+                android:layout_marginLeft="60dp"
                 android:background="#ffffff"
                 android:layout_alignTop="@+id/home_today_hankang_title_tv"
                 />
 
-            <RelativeLayout
-                android:layout_width="46dp"
-                android:layout_height="48.5dp"
-                android:layout_toRightOf="@id/home_center_view"
-                android:layout_marginLeft="20.5dp"
-                android:layout_alignTop="@+id/home_today_hankang_title_tv"
-                >
+
 
                 <ImageView
                     android:id="@+id/home_today_weather_img"
                     android:layout_width="36.6dp"
                     android:layout_height="30dp"
                     android:src="@drawable/icon_cloudy"
-                    android:layout_centerHorizontal="true"
+                    android:layout_toRightOf="@id/home_center_view"
+                    android:layout_marginLeft="18.3dp"
+                    android:layout_marginTop="54dp"
                     />
 
                 <TextView
-                    android:id="@+id/home_today_weather_tv"
+                    android:id="@+id/home_current_temp_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="구름조금"
-                    android:textSize="12sp"
+                    android:text="23˚"
+                    android:textSize="25sp"
                     android:textColor="#ffffff"
                     android:textStyle="bold"
-                    android:layout_below="@+id/home_today_weather_img"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="3.5dp"
+                    android:layout_marginTop="47dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_toRightOf="@id/home_today_weather_img"
                     />
 
-            </RelativeLayout>
+            <TextView
+                android:id="@+id/home_today_temp_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="24˚/18˚"
+                android:textSize="10sp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:layout_below="@+id/home_current_temp_tv"
+                android:layout_marginLeft="3dp"
+                android:layout_toRightOf="@id/home_today_weather_img"
+                />
+
+
 
             <RelativeLayout
                 android:layout_width="304dp"

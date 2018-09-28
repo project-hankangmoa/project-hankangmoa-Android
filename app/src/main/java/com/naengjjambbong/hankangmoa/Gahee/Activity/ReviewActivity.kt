@@ -4,11 +4,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.naengjjambbong.hankangmoa.Gahee.Adapter.ReviewAdapter
 import com.naengjjambbong.hankangmoa.Gahee.Item.ReviewItem
 import com.naengjjambbong.hankangmoa.R
+import com.naengjjambbong.hankangmoa.R.id.review_activity_btn_write_img
+import com.naengjjambbong.hankangmoa.R.layout.item_review_activity
 import kotlinx.android.synthetic.main.activity_review.*
 
 class ReviewActivity : AppCompatActivity() {

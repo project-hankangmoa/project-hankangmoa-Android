@@ -19,16 +19,14 @@ class MypageSteamListFragment : Fragment() {
     lateinit var mypageSteamListAdapter: MypageSteamListAdapter
     lateinit var requestManager: RequestManager //RequestManger는 이미지 주소를 URL로 가져오면서 사용함
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
         val v = inflater.inflate(R.layout.fragment_mypage_steamlist, container, false)
-        // Inflate the layout for this fragmen
+        // Inflate the layout for this fragment
 
         mypageSteamListItem = ArrayList()
         mypage(v)
-
         return v
     }
 
@@ -39,7 +37,7 @@ class MypageSteamListFragment : Fragment() {
         mypageSteamListItem.add(MypageSteamListItem("https://i.pinimg.com/originals/f7/d8/97/f7d8977935a3ef91038141f04e7e759c.png", "한강불ㅇ제","2019.04.02~","나루원" ))
         //projectItems.add(ProjectItem("https://project-cowalker.s3.ap-northeast-2.amazonaws.com/1531113346984.jpg", "ㅁㄴㅇㅎ", "ㅁㄴㅇㄹㄴㅁㅇㅎ", "ㅁㄴㅇㄹ", "ㅇㅎㅁㄴㅇㄹ"))ㅇ
         mypageSteamListAdapter = MypageSteamListAdapter(mypageSteamListItem, requestManager)
-        v.mypage_steamlist_recyclerview.layoutManager = LinearLayoutManager(context!!)
+        v.mypage_steamlist_recyclerview.layoutManager = LinearLayoutManager(v.context!!)
         v.mypage_steamlist_recyclerview.adapter = mypageSteamListAdapter
 
     }

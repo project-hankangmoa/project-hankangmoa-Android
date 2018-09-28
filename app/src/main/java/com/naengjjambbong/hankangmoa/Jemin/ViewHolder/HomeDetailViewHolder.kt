@@ -13,6 +13,8 @@ class HomeDetailViewHolder(itemView : View?) : RecyclerView.ViewHolder(itemView)
     var homeDetailActivityRange: TextView = itemView!!.findViewById(R.id.item_home_deatail_range_tv)
     var homeDetailActivityCount: TextView = itemView!!.findViewById(R.id.item_home_detail_count_tv)
 
+    var homeDetailActivityHearImage : ImageView = itemView!!.findViewById(R.id.item_home_detail_heart_img)
+
     var homeDetailHeartImage: ImageView = itemView!!.findViewById(R.id.item_home_detail_heart_img)
 
     var homeDetailStart1Image: ImageView = itemView!!.findViewById(R.id.item_home_detail_star1_img)

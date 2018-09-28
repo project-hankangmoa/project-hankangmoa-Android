@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:id="@+id/home_detail_time_layout"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="#fcfcfc">
+
+        <Button
+            android:id="@+id/activity_proceeding_btn"
+            android:layout_width="65.1dp"
+            android:layout_height="28.8dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="74dp"
+            android:background="@drawable/selector_category_btn"
+            android:textSize="12sp"
+            android:textColor="#000000"
+            android:text="진행중"
+            />
+
+
+        <Button
+            android:id="@+id/activity_scheduled_btn"
+            android:layout_width="65.1dp"
+            android:layout_height="28.8dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="146.7dp"
+            android:background="@drawable/selector_category_btn"
+            android:textSize="12sp"
+            android:textColor="#000000"
+            android:text="예정"
+            />
+
+
+        <Button
+            android:id="@+id/activity_completed_btn"
+            android:layout_width="65.1dp"
+            android:layout_height="28.8dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="220.6dp"
+            android:background="@drawable/selector_category_btn"
+            android:textSize="12sp"
+            android:textColor="#000000"
+            android:text="완 료"
+            />
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/tab_activity_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        >
+
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

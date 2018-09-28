@@ -11,18 +11,19 @@ import android.view.ViewGroup
 import com.bumptech.glide.RequestManager
 import com.naengjjambbong.hankangmoa.Jemin.Item.GridPhotoItem
 import com.naengjjambbong.hankangmoa.Jemin.Item.HomeDetailItem
+import com.naengjjambbong.hankangmoa.Jemin.Item.MongDDangItem
 import com.naengjjambbong.hankangmoa.Jemin.ViewHolder.GridPhotoViewHolder
 import com.naengjjambbong.hankangmoa.Jemin.ViewHolder.HomeDetailViewHolder
 import com.naengjjambbong.hankangmoa.R
 import kotlinx.android.synthetic.main.view_pager_main_list.view.*
 
-class HomeDetailAdapter(context : Context, private var homeDetailItem : ArrayList<HomeDetailItem>, var requestManager : RequestManager) : RecyclerView.Adapter<HomeDetailViewHolder>() {
+class HomeDetailAdapter(context : Context, private var homeDetailItem : ArrayList<MongDDangItem>, var requestManager : RequestManager) : RecyclerView.Adapter<HomeDetailViewHolder>() {
     val  mContext : Context = context
     private lateinit var onItemClick : View.OnClickListener
+    var heartFlag : Int = 0
 
     fun setOnItemClickListener(l : View.OnClickListener){
         onItemClick = l
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeDetailViewHolder {
@@ -37,7 +38,7 @@ class HomeDetailAdapter(context : Context, private var homeDetailItem : ArrayLis
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onBindViewHolder(holder: HomeDetailViewHolder, position: Int) {
-        requestManager.load(homeDetailItem[position].homeDetailActivityImageUrl).into(holder.homeDetailActivityImage)
+        requestManager.load(homeDetailItem[position].homeDetailActivityImgUrl).into(holder.homeDetailActivityImage)
         //requestManager.load(hotActivityItem[position].HotActivityImageUrl).error(R.drawable.btn_heart).into(holder.hotActivityImage)
 
         val drawable = mContext.getDrawable(R.drawable.background_rounding) as GradientDrawable
@@ -46,7 +47,20 @@ class HomeDetailAdapter(context : Context, private var homeDetailItem : ArrayLis
         holder.homeDetailActivityImage.clipToOutline = true
         holder.homeDetailActivityName.text = homeDetailItem[position].homeDetailActivityName
         holder.homeDetailActivityRange.text = homeDetailItem[position].homeDetailActivityRange
-        holder.homeDetailActivityCount.text = homeDetailItem[position].homeDetailActivityCount.toString()
+
+        holder.homeDetailActivityHearImage.setOnClickListener {
+            if(heartFlag == 0)
+            {
+                holder.homeDetailActivityHearImage.isSelected = true
+                heartFlag = 1
+            }
+            else{
+                holder.homeDetailActivityHearImage.isSelected = false
+                heartFlag = 0
+            }
+        }
+
+        //holder.homeDetailActivityCount.text = homeDetailItem[position].homeDetailActivityCount.toString()
 
     }
 

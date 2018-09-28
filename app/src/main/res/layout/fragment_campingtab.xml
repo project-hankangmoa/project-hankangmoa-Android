@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/camping_time_layout"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="#fcfcfc">
+
+        <Button
+            android:id="@+id/camping_proceeding_btn"
+            android:layout_width="65.1dp"
+            android:layout_height="28.8dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="74dp"
+            android:background="@drawable/selector_category_btn"
+            android:textSize="12sp"
+            android:textColor="#000000"
+            android:text="운영 중"
+            />
+
+
+        <Button
+            android:id="@+id/camping_stop_btn"
+            android:layout_width="65.1dp"
+            android:layout_height="28.8dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="180.7dp"
+            android:background="@drawable/selector_category_btn"
+            android:textSize="12sp"
+            android:textColor="#000000"
+            android:text="운영 중지"
+            />
+
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="20dp"
+        android:id="@+id/tab_camping_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        >
+
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>
