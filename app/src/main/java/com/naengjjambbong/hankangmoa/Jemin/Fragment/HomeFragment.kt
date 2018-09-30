@@ -76,31 +76,16 @@ class HomeFragment : Fragment(), View.OnClickListener{
         }
         v.home_camping_layout.setOnClickListener {
             HomeMainFragment.homeMainFragment.replaceFragment(HomeDetailFragment())
-            selectedCategoryNum = 2
+            selectedCategoryNum = 1
         }
         v.home_sport_layout.setOnClickListener {
             HomeMainFragment.homeMainFragment.replaceFragment(HomeDetailFragment())
-            selectedCategoryNum = 3
+            selectedCategoryNum = 2
         }
-        v.home_flower_layout.setOnClickListener {
-            HomeMainFragment.homeMainFragment.replaceFragment(HomeDetailFragment())
-            selectedCategoryNum = 0
-        }
-        v.home_experience_layout.setOnClickListener {
-            HomeMainFragment.homeMainFragment.replaceFragment(HomeDetailFragment())
-            selectedCategoryNum = 0
-        }
+
         v.home_water_layout.setOnClickListener {
             HomeMainFragment.homeMainFragment.replaceFragment(HomeDetailFragment())
-            selectedCategoryNum = 6
-        }
-        v.home_exhibit_layout.setOnClickListener {
-            HomeMainFragment.homeMainFragment.replaceFragment(HomeDetailFragment())
-            selectedCategoryNum = 0
-        }
-        v.home_etc_layout.setOnClickListener {
-            HomeMainFragment.homeMainFragment.replaceFragment(HomeDetailFragment())
-            selectedCategoryNum = 0
+            selectedCategoryNum = 3
         }
 
         homeFragment = this
@@ -167,8 +152,6 @@ class HomeFragment : Fragment(), View.OnClickListener{
         hotActivityItem.add(HotActivityItem("https://t1.daumcdn.net/cfile/tistory/197139465164BEBF0B", "한강 다리밑 영화제","2018.08.11(토) ~ 08. 15(수)"))
         hotActivityItem.add(HotActivityItem("https://images.kbench.com/kbench/article/2011_04/k99180p1n7.jpg", "한강 다리밑 영화제","2018.08.13(월) ~ 08. 17(금)"))
         hotActivityItem.add(HotActivityItem("https://img1.daumcdn.net/thumb/S600x434/?scode=1boon&fname=https://t1.daumcdn.net/liveboard/mediaseoul/c633692445db4724984a654ae2ee8c03.JPG", "한강 축제","2018.08.10(금) ~ 08. 12(일)"))
-        hotActivityItem.add(HotActivityItem("http://love.seoul.go.kr/pds/Board/seoul_news_write/201708_12_1.jpg", "한강 축제","2018.08.10(금) ~ 08. 12(일)"))
-        hotActivityItem.add(HotActivityItem("http://image.kmib.co.kr/online_image/2016/0117/201601171739_61120010263499_1.jpg", "한강 축제","2018.08.10(금) ~ 08. 12(일)"))
         //projectItems.add(ProjectItem("https://project-cowalker.s3.ap-northeast-2.amazonaws.com/1531113346984.jpg", "ㅁㄴㅇㅎ", "ㅁㄴㅇㄹㄴㅁㅇㅎ", "ㅁㄴㅇㄹ", "ㅇㅎㅁㄴㅇㄹ"))ㅇ
         hotActivityAdapter = HotActivityAdapter(context!!, hotActivityItem, requestManager)
         hotActivityAdapter.setOnItemClickListener(this@HomeFragment)

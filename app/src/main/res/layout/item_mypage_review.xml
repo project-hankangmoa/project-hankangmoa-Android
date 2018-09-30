@@ -27,8 +27,9 @@
             android:layout_height="wrap_content"
             android:src="@drawable/btn_arrow2"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/mypage_review_eventname_tv"
-            android:layout_marginStart="76.3dp"/>
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="15dp"
+            />
 
 
     </RelativeLayout>
@@ -140,7 +141,7 @@
 
         <View
             android:layout_width="340dp"
-            android:layout_height="1dp"
+            android:layout_height="0.5dp"
             android:background="#a0a0a0"
             android:layout_marginTop="20dp"
             android:layout_marginStart="10dp"

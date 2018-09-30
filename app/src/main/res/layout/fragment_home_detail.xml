@@ -20,7 +20,7 @@
             android:textColor="#ffffff"
             android:letterSpacing="-0.05"
             android:lineSpacingExtra="3sp"
-            android:text="문화/전시 "
+            android:text="문화/행사"
             />
 
     </LinearLayout>
@@ -63,8 +63,6 @@
 
         </LinearLayout>
 
-
-
         <View
             android:layout_width="1dp"
             android:layout_height="26dp"
@@ -75,8 +73,6 @@
 
     </RelativeLayout>
 
-
-
     <LinearLayout
         android:id="@+id/home_detail_content_layout"
         android:layout_width="match_parent"
@@ -85,12 +81,7 @@
         android:layout_below="@+id/list_tag"
         >
 
-
-
     </LinearLayout>
-
-
-
 
 
 </RelativeLayout>

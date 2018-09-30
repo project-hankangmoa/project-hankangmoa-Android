@@ -18,6 +18,7 @@
             android:layout_height="105dp"
             android:src="@drawable/example_content"
             android:scaleType="fitXY"
+            android:background="@drawable/round_main_hot_activity_img"
             />
 
         <TextView

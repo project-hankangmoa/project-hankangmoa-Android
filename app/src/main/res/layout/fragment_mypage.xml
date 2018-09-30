@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,29 +8,28 @@
         android:layout_height="103dp"
         android:background="@drawable/bar">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginTop="12dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="17sp"
-                android:textColor="#ffffff"
-                android:layout_marginLeft="142dp"
-                android:layout_marginTop="12dp"
+                android:layout_centerInParent="true"
                 android:text="마이페이지"
-                />
+                android:textColor="#ffffff"
+                android:textSize="17sp" />
 
             <ImageView
                 android:layout_width="17dp"
                 android:layout_height="17dp"
-                android:layout_marginLeft="110dp"
-                android:layout_marginTop="18.3dp"
-                android:src="@drawable/btn_setting"/>
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="15dp"
+                android:src="@drawable/btn_setting" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </RelativeLayout>
 
@@ -39,118 +37,120 @@
         android:id="@+id/mypage_profile_img"
         android:layout_width="70dp"
         android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="68dp"
-        android:layout_marginLeft="145dp"
-        android:src="@drawable/img_profile"
-        />
+        android:src="@drawable/img_profile" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/mypage_profile_photo_btn"
         android:layout_width="22dp"
         android:layout_height="22dp"
-        android:layout_marginTop="113dp"
+        android:layout_alignBottom="@+id/mypage_profile_img"
+        android:layout_alignRight="@+id/mypage_profile_img"
         android:layout_marginLeft="198dp"
-        android:src="@drawable/btn_image_edit"
-        />
+        android:layout_marginTop="113dp"
+        android:src="@drawable/btn_image_edit" />
 
     <TextView
+        android:id="@+id/fragment_mypage_name_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="146dp"
-        android:layout_marginLeft="159dp"
-        android:textSize="17sp"
-        android:textColor="#484848"
         android:gravity="center_horizontal"
         android:text="김지혜"
-        />
+        android:textColor="#484848"
+        android:textSize="17sp" />
 
     <ImageView
         android:layout_width="14dp"
         android:layout_height="14dp"
-        android:layout_marginLeft="203dp"
-        android:layout_marginTop="149.5dp"
-        android:src="@drawable/icon_edit"
-        />
+        android:layout_alignBottom="@+id/fragment_mypage_name_tv"
+        android:layout_toRightOf="@+id/fragment_mypage_name_tv"
+        android:src="@drawable/icon_edit" />
 
-    <RelativeLayout
-        android:id="@+id/mypage_steamlist_tv"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/frag_mypage_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="66dp"
-        android:layout_marginTop="189dp">
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/fragment_mypage_name_tv"
+        android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="13sp"
-        android:textColor="#484848"
-        android:letterSpacing="-0.05"
-        android:lineSpacingExtra="5sp"
-        android:gravity="center_horizontal"
-        android:text="찜 목록"
-        />
+        <RelativeLayout
+            android:id="@+id/mypage_steamlist_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_centerHorizontal="true"
-        android:textSize="20sp"
-        android:textColor="#484848"
-        android:gravity="center_horizontal"
-        android:text="12"
-        />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="5sp"
+                android:layout_centerHorizontal="true"
+                android:text="찜 목록"
+                android:textColor="#484848"
+                android:textSize="13sp" />
 
-    </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:text="12"
+                android:textColor="#484848"
+                android:textSize="20sp" />
 
-
-    <RelativeLayout
-        android:id="@+id/mypage_myreview_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="242dp"
-        android:layout_marginTop="189dp">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="13sp"
-        android:textColor="#484848"
-        android:letterSpacing="-0.05"
-        android:lineSpacingExtra="5sp"
-        android:gravity="center_horizontal"
-        android:text="내가 쓴 리뷰"
-        />
+        </RelativeLayout>
 
 
-    <TextView
+        <RelativeLayout
+            android:id="@+id/mypage_myreview_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_centerHorizontal="true"
-        android:textSize="20sp"
-        android:textColor="#484848"
-        android:gravity="center_horizontal"
-        android:text="7"
-        />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:letterSpacing="-0.05"
+                android:lineSpacingExtra="5sp"
+                android:layout_centerHorizontal="true"
+                android:text="내가 쓴 리뷰"
+                android:textColor="#484848"
+                android:textSize="13sp" />
 
-    </RelativeLayout>
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="25dp"
+                android:gravity="center_horizontal"
+                android:text="7"
+                android:textColor="#484848"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
     <View
         android:id="@+id/fragment_mypage_view"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="243.5dp"
-        android:background="#a7a7a7"
-        />
+        android:layout_below="@+id/frag_mypage_layout"
+        android:layout_marginTop="10dp"
+        android:background="#a7a7a7" />
 
     <LinearLayout
         android:id="@+id/fragmnet_mypage_content_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/fragment_mypage_view"
-        android:orientation="vertical"/>
+        android:orientation="vertical" />
 
 
 </RelativeLayout>

@@ -78,11 +78,10 @@ class HomeDetailFragment : Fragment(), MainActivity.OnBackPressedListener{
         val v = inflater.inflate(R.layout.fragment_home_detail, container, false)
         // Inflate the layout for this fragmen
 
-        categoryNumber=7
+        categoryNumber=4
 
-        val category_list = arrayOf("문화/전시", "음악/콘서트", "캠핑", "스포츠", "꽃놀이", "체험", "물놀이", "기타")
+        val category_list = arrayOf("문화/행사", "캠핑", "스포츠", "물놀이")
         val sort_list = arrayOf("최신순", "인기순")
-
 
         val categorySpinner = v.findViewById<View>(R.id.home_detail_category_spinner) as Spinner
         val sortSpinner = v.findViewById<View>(R.id.home_detail_sort_spinner) as Spinner
@@ -110,21 +109,16 @@ class HomeDetailFragment : Fragment(), MainActivity.OnBackPressedListener{
         categorySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 if (position == 0) {
-                    Log.v("asdf", "문화/전시 호출")
+                    Log.v("asdf", "문화/행사 호출")
                     replaceFragment(ActivityTab())
                 } else if (position == 1) {
-                    replaceFragment(ActivityTab())
+                    replaceFragment(CampingTab())
                 } else if (position == 2) {
                     Log.v("Asdf", "캠핑장 호출")
-                    replaceFragment(CampingTab())
-                } else if (position == 3) {
                     replaceFragment(SportTab())
-                } else if (position == 4) {
-
-                } else if (position == 5) {
-
-                } else if(position == 6) {
+                } else if (position == 3) {
                     replaceFragment(PoolTab())
+                } else if (position == 4) {
 
                 } else {
                 }

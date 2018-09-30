@@ -1,6 +1,7 @@
 package com.naengjjambbong.hankangmoa.Gahee.Adapter
 
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +25,13 @@ class ReviewAdapter(private var reviewitems : ArrayList<ReviewItem>, var request
         requestManager.load(reviewitems[position].profileURL).into(holder.reviewProfileImage)
         holder.reviewName.text = reviewitems[position].userid
         holder.reviewDetail.text = reviewitems[position].review
+        if(reviewitems[position].reviewimg == null){
+            holder.reviewImage.visibility = View.GONE
+            Log.v("asdf","사진 없음")
+        }
+        else{
+            holder.reviewImage.visibility = View.VISIBLE
+        }
         requestManager.load(reviewitems[position].reviewimg).into(holder.reviewImage)
         holder.reviewDate.text = reviewitems[position].reviewdate
     }

@@ -1,6 +1,7 @@
 package com.naengjjambbong.hankangmoa.Gahee.Adapter
 
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,6 +29,15 @@ class MypageMyreviewAdapter(private var mypagemyreviewitems : ArrayList<MypageMy
         requestManager.load(mypagemyreviewitems[position].myreviewprofileURL).into(holder.myreviewProfileImage)
         holder.myreviewName.text = mypagemyreviewitems[position].myreviewuserid
         holder.myreviewDetail.text = mypagemyreviewitems[position].myreview
+
+        if(mypagemyreviewitems[position].myreviewimg == null){
+            holder.myreviewImage.visibility = View.GONE
+            Log.v("asdf","사진 없음")
+        }
+        else{
+            holder.myreviewImage.visibility = View.VISIBLE
+        }
+
         requestManager.load(mypagemyreviewitems[position].myreviewimg).into(holder.myreviewImage)
         holder.myreviewDate.text = mypagemyreviewitems[position].myreviewdate
     }

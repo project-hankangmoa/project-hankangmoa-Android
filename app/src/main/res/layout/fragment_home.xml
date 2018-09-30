@@ -104,6 +104,7 @@
                     android:layout_width="250dp"
                     android:layout_height="34dp"
                     android:layout_marginLeft="20dp"
+                    android:hint="원하시는 활동을 검색해보세요."
                     android:textSize="13sp"
                     android:layout_centerVertical="true"
                     android:backgroundTint="@color/Transparent"
@@ -144,20 +145,20 @@
         </LinearLayout>
 
         <RelativeLayout
+            android:layout_centerHorizontal="true"
             android:id="@+id/home_select_type_layout"
-            android:layout_width="match_parent"
-            android:layout_height="152.6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
             android:layout_below="@+id/home_proceeding_content_layout"
             android:layout_marginTop="40.2dp"
             >
             
             <LinearLayout
                 android:id="@+id/home_concert_layout"
-                android:layout_width="73.1dp"
-                android:layout_height="73.1dp"
+                android:layout_width="78dp"
+                android:layout_height="75dp"
                 android:orientation="vertical"
                 android:background="@drawable/round_button"
-                android:layout_marginLeft="23dp"
                 >
                 
                 <ImageView
@@ -171,7 +172,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="음악 / 콘서트"
+                    android:text="문화/행사"
                     android:textSize="10sp"
                     android:textColor="#0f0f0f"
                     android:layout_marginTop="4.5dp"
@@ -180,8 +181,8 @@
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/home_camping_layout"
-                android:layout_width="73.1dp"
-                android:layout_height="73.1dp"
+                android:layout_width="78dp"
+                android:layout_height="75dp"
                 android:orientation="vertical"
                 android:background="@drawable/round_button"
                 android:layout_marginLeft="7.3dp"
@@ -206,10 +207,11 @@
                     android:layout_gravity="center"
                     />
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/home_sport_layout"
-                android:layout_width="73.1dp"
-                android:layout_height="73.1dp"
+                android:layout_width="78dp"
+                android:layout_height="75dp"
                 android:orientation="vertical"
                 android:background="@drawable/round_button"
                 android:layout_toRightOf="@+id/home_camping_layout"
@@ -235,71 +237,13 @@
                     />
             </LinearLayout>
             <LinearLayout
-                android:id="@+id/home_flower_layout"
-                android:layout_width="73.1dp"
-                android:layout_height="73.1dp"
+                android:id="@+id/home_water_layout"
+                android:layout_width="78dp"
+                android:layout_height="75dp"
                 android:orientation="vertical"
                 android:background="@drawable/round_button"
                 android:layout_marginLeft="7.3dp"
                 android:layout_toRightOf="@+id/home_sport_layout"
-                >
-
-                <ImageView
-                    android:layout_width="25.8dp"
-                    android:layout_height="25.6dp"
-                    android:src="@drawable/icon_flower"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="18.8dp"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="꽃놀이"
-                    android:textSize="10sp"
-                    android:textColor="#0f0f0f"
-                    android:layout_marginTop="4.5dp"
-                    android:layout_gravity="center"
-                    />
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/home_experience_layout"
-                android:layout_width="73.1dp"
-                android:layout_height="73.1dp"
-                android:orientation="vertical"
-                android:background="@drawable/round_button"
-                android:layout_alignLeft="@+id/home_concert_layout"
-                android:layout_marginTop="6.4dp"
-                android:layout_below="@+id/home_concert_layout"
-                >
-
-                <ImageView
-                    android:layout_width="25.8dp"
-                    android:layout_height="25.6dp"
-                    android:src="@drawable/icon_experience"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="18.8dp"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="체험"
-                    android:textSize="10sp"
-                    android:textColor="#0f0f0f"
-                    android:layout_marginTop="4.5dp"
-                    android:layout_gravity="center"
-                    />
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/home_water_layout"
-                android:layout_width="73.1dp"
-                android:layout_height="73.1dp"
-                android:orientation="vertical"
-                android:background="@drawable/round_button"
-                android:layout_marginLeft="7.3dp"
-                android:layout_toRightOf="@id/home_experience_layout"
-                android:layout_alignTop="@id/home_experience_layout"
                 >
 
                 <ImageView
@@ -320,56 +264,6 @@
                     android:layout_gravity="center"
                     />
             </LinearLayout>
-            <LinearLayout
-                android:id="@+id/home_exhibit_layout"
-                android:layout_width="73.1dp"
-                android:layout_height="73.1dp"
-                android:background="@drawable/round_button"
-                android:layout_marginLeft="7.3dp"
-                android:layout_toRightOf="@id/home_water_layout"
-                android:layout_alignTop="@id/home_experience_layout"
-                android:orientation="vertical"
-                >
-
-                <ImageView
-                    android:layout_width="25.8dp"
-                    android:layout_height="25.6dp"
-                    android:src="@drawable/icon_exhibit"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="18.8dp"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="문화 / 전시"
-                    android:textSize="10sp"
-                    android:textColor="#0f0f0f"
-                    android:layout_marginTop="4.5dp"
-                    android:layout_gravity="center"
-                    />
-            </LinearLayout>
-            <RelativeLayout
-                android:id="@+id/home_etc_layout"
-                android:layout_width="73.1dp"
-                android:layout_height="73.1dp"
-                android:orientation="vertical"
-                android:background="@drawable/round_button"
-                android:layout_marginLeft="7.3dp"
-                android:layout_toRightOf="@id/home_exhibit_layout"
-                android:layout_alignTop="@id/home_experience_layout"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="기타"
-                    android:textSize="10sp"
-                    android:textColor="#0f0f0f"
-                    android:layout_marginTop="4.5dp"
-                    android:layout_centerInParent="true"
-                    />
-            </RelativeLayout>
 
         </RelativeLayout>
 
