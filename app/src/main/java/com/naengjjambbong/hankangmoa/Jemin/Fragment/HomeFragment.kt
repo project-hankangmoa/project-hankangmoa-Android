@@ -169,8 +169,8 @@ class HomeFragment : Fragment(), View.OnClickListener{
         hotLocationItem.add(HotLocationItem("https://img1.daumcdn.net/thumb/S600x434/?scode=1boon&fname=https://t1.daumcdn.net/liveboard/mediaseoul/c633692445db4724984a654ae2ee8c03.JPG", "한강 축제"))
         hotLocationItem.add(HotLocationItem("http://love.seoul.go.kr/pds/Board/seoul_news_write/201708_12_1.jpg", "한강 축제"))
         hotLocationItem.add(HotLocationItem("http://image.kmib.co.kr/online_image/2016/0117/201601171739_61120010263499_1.jpg", "한강 축제"))
-        hotLocationItem.add(HotLocationItem("https://i.pinimg.com/originals/f7/d8/97/f7d8977935a3ef91038141f04e7e759c.png", "한강 불꽃제"))
-        hotLocationItem.add(HotLocationItem("https://i.pinimg.com/originals/f7/d8/97/f7d8977935a3ef91038141f04e7e759c.png", "한강 불꽃제"))
+        hotLocationItem.add(HotLocationItem("https://images.kbench.com/kbench/article/2011_04/k99180p1n7.jpg", "한강 다리밑 영화제"))
+        hotLocationItem.add(HotLocationItem("http://img.insight.co.kr/static/2018/08/11/700/42wbhmovdhjris56jo3a.jpg", "한강 캠프파이어"))
         //projectItems.add(ProjectItem("https://project-cowalker.s3.ap-northeast-2.amazonaws.com/1531113346984.jpg", "ㅁㄴㅇㅎ", "ㅁㄴㅇㄹㄴㅁㅇㅎ", "ㅁㄴㅇㄹ", "ㅇㅎㅁㄴㅇㄹ"))ㅇ
         hotLocationAdapter = HotLocationAdapter(context!!, hotLocationItem, requestManager)
         hotLocationAdapter.setOnItemClickListener(this@HomeFragment)
