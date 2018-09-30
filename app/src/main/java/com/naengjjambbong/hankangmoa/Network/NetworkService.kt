@@ -2,6 +2,7 @@ package com.naengjjambbong.hankangmoa.Network
 
 import com.naengjjambbong.hankangmoa.Network.Get.Response.GetImageSearchResponse
 import com.naengjjambbong.hankangmoa.Network.Item.PostRegister
+import com.naengjjambbong.hankangmoa.Network.Post.PostPwCheckResponse
 import com.naengjjambbong.hankangmoa.Network.Post.PostRegisterResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -20,5 +21,14 @@ interface NetworkService {
             @Header("Authorization") Authorization: String,
             @Query("query") query : String
     ) : Call<GetImageSearchResponse>
+
+    @Multipart
+    @POST("hangangmoa/pwcheck")
+    fun postPwCheck(
+            @Part("email") email : RequestBody,
+            @Part("pw") pw : RequestBody
+    ) : Call<PostPwCheckResponse>
+
+
 
 }

@@ -71,7 +71,6 @@ class LinearPhotoAdapter(context : Context, private var linearPhotoItem : ArrayL
         holder.linearPhotoMakerName.text = linearPhotoItem[position].linearPhotoMakerName
         holder.linearPhotoHeartCount.text = linearPhotoItem[position].linearPhotoHearCount.toString()
         holder.linearPhotoReview.text = linearPhotoItem[position].linearPhotoReview
-
     }
 
 }
