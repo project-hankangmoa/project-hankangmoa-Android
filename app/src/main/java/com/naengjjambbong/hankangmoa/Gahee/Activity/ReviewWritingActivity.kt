@@ -13,16 +13,23 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.RatingBar
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.RequestManager
 import com.naengjjambbong.hankangmoa.Gahee.Adapter.MypageSteamListAdapter
 import com.naengjjambbong.hankangmoa.Gahee.Item.MypageSteamListItem
+import com.naengjjambbong.hankangmoa.Network.ApplicationController
+import com.naengjjambbong.hankangmoa.Network.NetworkService
+import com.naengjjambbong.hankangmoa.Network.Post.PostProfileImageResponse
+import com.naengjjambbong.hankangmoa.Network.Post.PostReviewWriteResponse
 import com.naengjjambbong.hankangmoa.R
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.activity_review_writting.*
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import retrofit2.Call
+import retrofit2.Response
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileNotFoundException
@@ -34,14 +41,14 @@ class ReviewWritingActivity : AppCompatActivity() {
     lateinit var mypageSteamListItem: ArrayList<MypageSteamListItem>
     lateinit var mypageSteamListAdapter: MypageSteamListAdapter
     lateinit var requestManager: RequestManager //RequestManger는 이미지 주소를 URL로 가져오면서 사용함
-
+    lateinit var networkService : NetworkService
     //lateinit var complete_button : Button
     lateinit var star_rating_bar : RatingBar
 
 
     private val REQ_CODE_SELECT_IMAGE = 100
     lateinit var data : Uri
-    private var image : MultipartBody.Part? = null
+    private var rvImage : MultipartBody.Part? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -117,14 +124,14 @@ class ReviewWritingActivity : AppCompatActivity() {
                     Log.v("TAG","이미지 바디 = " + photoBody.toString())
 
 
-                    image = MultipartBody.Part.createFormData("image", img.name, photoBody)
+                    rvImage = MultipartBody.Part.createFormData("image", img.name, photoBody)
 
                     //body = MultipartBody.Part.createFormData("image", photo.getName(), profile_pic);
 
                     Glide.with(this)
                             .load(data.data)
                             .centerCrop()
-                            .into(register_profile_img)
+                            .into(review_wirte_review_img)
 
                 } catch (e: Exception) {
                     e.printStackTrace()
@@ -145,5 +152,40 @@ class ReviewWritingActivity : AppCompatActivity() {
         } finally {
             cursor?.close()
         }
+    }
+
+    fun postReviewWrite() {
+        var userIDValue : Int = 0
+        networkService = ApplicationController.getRetrofit().create(NetworkService::class.java)
+
+        val userID = RequestBody.create(MediaType.parse("text.plain"), userIDValue.toString())
+        val rvList = RequestBody.create(MediaType.parse("text.plain"), "테스트 이름")
+        val rvText = RequestBody.create(MediaType.parse("text.plain"), "테스트 상세설명")
+
+        val postRoomTestResponse = networkService.postReviewWrite(userID, rvList, rvImage, rvText)
+
+        Log.v("TAG", "유저 아이디 = " + userIDValue + ", 이미지 = " + rvImage)
+
+        postRoomTestResponse.enqueue(object : retrofit2.Callback<PostReviewWriteResponse>{
+
+            override fun onResponse(call: Call<PostReviewWriteResponse>, response: Response<PostReviewWriteResponse>) {
+                Log.v("TAG", "리뷰 등록 통신 성공")
+                if(response.isSuccessful){
+                    var message = response!!.body()
+
+                    Log.v("TAG", "리뷰 등록 값 전달 성공 = "+ message.toString())
+
+                }
+                else{
+
+                    Log.v("TAG", "리뷰 등록 값 전달 실패"+ response!!.body().toString())
+                }
+            }
+
+            override fun onFailure(call: Call<PostReviewWriteResponse>, t: Throwable?) {
+                Toast.makeText(applicationContext,"리뷰 등록 서버 연결 실패", Toast.LENGTH_SHORT).show()
+            }
+
+        })
     }
 }

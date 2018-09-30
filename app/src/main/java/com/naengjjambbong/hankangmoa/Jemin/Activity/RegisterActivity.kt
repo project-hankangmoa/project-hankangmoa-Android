@@ -23,6 +23,7 @@ import com.bumptech.glide.RequestManager
 import com.naengjjambbong.hankangmoa.Network.ApplicationController
 import com.naengjjambbong.hankangmoa.Network.Item.PostRegister
 import com.naengjjambbong.hankangmoa.Network.NetworkService
+import com.naengjjambbong.hankangmoa.Network.Post.PostProfileImageResponse
 import com.naengjjambbong.hankangmoa.Network.Post.PostRegisterResponse
 import com.naengjjambbong.hankangmoa.R
 import com.naengjjambbong.hankangmoa.R.id.register_confirm_btn
@@ -41,7 +42,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private val REQ_CODE_SELECT_IMAGE = 100
     lateinit var data : Uri
-    private var image : MultipartBody.Part? = null
+    private var file : MultipartBody.Part? = null
     lateinit var requestManager: RequestManager
     lateinit var networkService : NetworkService
 
@@ -115,7 +116,7 @@ class RegisterActivity : AppCompatActivity() {
                     Log.v("TAG","이미지 바디 = " + photoBody.toString())
 
 
-                    image = MultipartBody.Part.createFormData("image", img.name, photoBody)
+                    file = MultipartBody.Part.createFormData("image", img.name, photoBody)
 
                     //body = MultipartBody.Part.createFormData("image", photo.getName(), profile_pic);
 
@@ -171,5 +172,39 @@ class RegisterActivity : AppCompatActivity() {
 
         })
 
+    }
+
+    fun postProfileImage() {
+        var userIDValue : Int = 0
+        networkService = ApplicationController.getRetrofit().create(NetworkService::class.java)
+
+        val userID = RequestBody.create(MediaType.parse("text.plain"), userIDValue.toString())
+
+        val postRoomTestResponse = networkService.postProfileImage(userIDValue.toString(), userID, file)
+
+        Log.v("TAG", "유저 아이디 = " + userIDValue + ", 이미지 = " + file)
+
+        postRoomTestResponse.enqueue(object : retrofit2.Callback<PostProfileImageResponse>{
+
+            override fun onResponse(call: Call<PostProfileImageResponse>, response: Response<PostProfileImageResponse>) {
+                Log.v("TAG", "유저 프로필사진 등록 통신 성공")
+                if(response.isSuccessful){
+                    var message = response!!.body()
+
+                    Log.v("TAG", "유저 프로필사진 등록 값 전달 성공 = "+ message.toString())
+
+                }
+                else{
+                    Toast.makeText(applicationContext,"프로젝트 이미지를 선택해주세요", Toast.LENGTH_SHORT).show()
+
+                    Log.v("TAG", "유저 프로필사진 등록 값 전달 실패"+ response!!.body().toString())
+                }
+            }
+
+            override fun onFailure(call: Call<PostProfileImageResponse>, t: Throwable?) {
+                Toast.makeText(applicationContext,"유저 프로필사진 등록 서버 연결 실패", Toast.LENGTH_SHORT).show()
+            }
+
+        })
     }
 }

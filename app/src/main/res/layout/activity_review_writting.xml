@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -192,20 +196,39 @@
 
     </RelativeLayout>
 
-    <Button
-        android:id="@+id/review_write_confirm_btn"
-        android:layout_width="260dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="546dp"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/btn_complete"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="35dp"
-        android:text="입력완료"
-        android:textSize="15sp"
-        android:textColor="#ffffff"
-        >
-    </Button>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="35dp"
+            android:layout_below="@+id/review_write_add_box"
+            android:layout_marginTop="10dp"
+            >
+            <ImageView
+                android:id="@+id/review_wirte_review_img"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:src="@drawable/example_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="5dp"
+                android:scaleType="fitXY"
+                />
+            <Button
+            android:id="@+id/review_write_confirm_btn"
+            android:layout_width="260dp"
+            android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center_horizontal"
+            android:background="@drawable/btn_complete"
+            android:text="입력완료"
+            android:textSize="15sp"
+            android:textColor="#ffffff"
+            />
+        </LinearLayout>
 
-</RelativeLayout>
+    </RelativeLayout>
+
+
+</ScrollView>
 
