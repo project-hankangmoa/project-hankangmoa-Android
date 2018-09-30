@@ -57,7 +57,6 @@ class HomeDetailFragment : Fragment(), MainActivity.OnBackPressedListener{
 
     var selectedCategoryNum : Int = 0
 
-
     var mainFragment = HomeFragment()
     override fun onBack() {
         Log.e("Other", "onBack()")

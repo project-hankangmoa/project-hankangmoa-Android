@@ -92,6 +92,7 @@
 
 
             <RelativeLayout
+                android:id="@+id/fragment_home_layout"
                 android:layout_width="304dp"
                 android:layout_height="34dp"
                 android:background="@drawable/searchbar"
@@ -101,12 +102,12 @@
                 >
 
                 <EditText
-                    android:layout_width="250dp"
-                    android:layout_height="34dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:hint="원하시는 활동을 검색해보세요."
-                    android:textSize="13sp"
-                    android:layout_centerVertical="true"
+                    android:textSize="11sp"
+                    android:layout_centerInParent="true"
                     android:backgroundTint="@color/Transparent"
                     />
 
@@ -119,13 +120,13 @@
                 android:layout_height="16.1dp"
                 android:background="@drawable/btn_search"
                 android:layout_below="@+id/home_today_hankang_content_tv"
+                android:layout_alignRight="@+id/fragment_home_layout"
+                android:layout_marginEnd="15dp"
                 android:layout_marginTop="34dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="52.9dp"
                 />
 
-
         </RelativeLayout>
+
 
         <LinearLayout
             android:id="@+id/home_proceeding_content_layout"
@@ -143,6 +144,7 @@
                 android:clipToPadding="false" />
 
         </LinearLayout>
+
 
         <RelativeLayout
             android:layout_centerHorizontal="true"
@@ -299,8 +301,8 @@
                 android:id="@+id/home_hot_activity_recyclerview"
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="15dp"
+                android:layout_centerHorizontal="true   "
+                android:layout_marginHorizontal="15dp"
                 android:layout_below="@+id/home_hot_activity_title_tv"
                 >
 

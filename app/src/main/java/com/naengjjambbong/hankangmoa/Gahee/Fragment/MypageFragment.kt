@@ -1,6 +1,7 @@
 package com.naengjjambbong.hankangmoa.Gahee.Fragment
 
 import android.app.Activity
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.database.Cursor
@@ -36,29 +37,35 @@ class MypageFragment :  Fragment(), View.OnClickListener {
     lateinit var data: Uri
     private var image: MultipartBody.Part? = null
 
+
     override fun onClick(v: View?) {
+
         when (v) {
             mypage_steamlist_tv -> {
                 mypage_steamlist_tv.isSelected = true
                 mypage_myreview_tv.isSelected = false
                 replaceFragment(MypageSteamListFragment())
+
+                fragment_mypage_view1.visibility = View.VISIBLE
+                fragment_mypage_view2.visibility = View.GONE
             }
 
             mypage_myreview_tv -> {
                 mypage_myreview_tv.isSelected = true
                 mypage_steamlist_tv.isSelected = false
                 replaceFragment(MypageMyreviewFragment())
+
+                fragment_mypage_view2.visibility = View.VISIBLE
+                fragment_mypage_view1.visibility = View.GONE
             }
         }
-
-
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
         val v = inflater.inflate(R.layout.fragment_mypage, container, false)
-        // Inflate the layout for this fragmen
+        // Inflate the layout for this fragment
 
         requestManager = Glide.with(this)
 
@@ -75,6 +82,10 @@ class MypageFragment :  Fragment(), View.OnClickListener {
 
         v.mypage_profile_photo_btn.setOnClickListener {
             changeImage()
+        }
+
+        v.frag_mypage_name_layout.setOnClickListener{
+            showDialog()
         }
 
         return v
@@ -162,4 +173,19 @@ class MypageFragment :  Fragment(), View.OnClickListener {
             cursor?.close()
         }
     }
+
+    protected fun showDialog() {
+        var dialog = Dialog(activity)
+        dialog.setCancelable(true)
+
+        val dialogView = activity!!.layoutInflater.inflate(R.layout.popup_mypage_review, null)
+        dialog.setContentView(dialogView)
+
+        dialog.show()
+
+
+    }
+
+
+
 }

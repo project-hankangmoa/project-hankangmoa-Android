@@ -281,8 +281,10 @@
                 android:layout_alignEnd="@+id/layout_festival_summary"
                 android:layout_alignTop="@+id/layout_festival_summary"
                 android:layout_marginTop="-25dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/selector_detail_heart_btn"
-                android:src="@drawable/btn_heart" />
+                android:src="@drawable/selector_detail_heart_btn" />
+
         </RelativeLayout>
 
 

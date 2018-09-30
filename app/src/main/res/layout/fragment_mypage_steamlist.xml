@@ -5,13 +5,6 @@
     android:orientation="vertical"
     >
 
-    <View
-        android:layout_width="63dp"
-        android:layout_height="2dp"
-        android:background="#7287a7"
-        android:layout_marginStart="52.5dp"
-        />
-
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/mypage_steamlist_recyclerview"

@@ -4,12 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <View
-        android:layout_width="63dp"
-        android:layout_height="2dp"
-        android:background="#7287a7"
-        android:layout_marginStart="240.5dp"
-        />
 
 
     <android.support.v7.widget.RecyclerView
